@@ -3,7 +3,8 @@ class QuickFindUF { // Union Find Algo
   constructor(length) {
     this.arrayOfIds = Array(length);
 
-    for (var i = 0; i < this.arrayOfIds.length; i++) { // sets id = to index to start
+    // sets id to its index in the array
+    for (var i = 0; i < this.arrayOfIds.length; i++) {
       this.arrayOfIds[i] = i
     }
   }
@@ -31,11 +32,5 @@ class QuickFindUF { // Union Find Algo
     }
   }
 }
-
-// const path = new QuickFindUF(5)
-// console.log(path);
-
-// const connection = path.areTheyConnected(1, 1)
-// console.log(connection)
 
 module.exports = QuickFindUF
