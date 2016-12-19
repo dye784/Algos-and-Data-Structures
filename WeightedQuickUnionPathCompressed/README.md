@@ -23,6 +23,7 @@ With this improvement we now have something that is close enough to linear run t
 If you want to try and implement and see how this affects your performance run time you can use
 
 `const timerName = "OPTINAL STRING HERE TO CALL YOUR TIMER"`
+
 `console.time(timerName)`
 
 and then to end the timer
