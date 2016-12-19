@@ -19,3 +19,12 @@ By adding this one liner to our root function every time we call it we change ou
 Also no test specs for this. Try it out. There's an explanation in the file telling you what the magic one liner does.
 
 With this improvement we now have something that is close enough to linear run time (O(n)) in practice. It's not exactly linear but for all practical purposes it is linear.
+
+If you want to try and implement and see how this affects your performance run time you can use
+
+`const timerName = "OPTINAL STRING HERE TO CALL YOUR TIMER"`
+`console.time(timerName)`
+
+and then to end the timer
+
+`console.timeEnd(timerName)`

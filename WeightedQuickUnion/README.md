@@ -33,3 +33,12 @@ Find out which tree is larger. Link smaller tree to larger tree. Update the arra
 No test specs for this because I'm lazy. Also because it's pretty simple to implement. There are only a few modifications to do. Try to implement yourself and then look at the solution if you get stuck or you can just look at the solution and learn from that. ¯\_(ツ)_/¯ <-- lost his arm from writing test specs
 
 See README for Weighted Quick Union Path Compression for full improvements on this algo.
+
+If you want to try and implement and see how this affects your performance run time you can use
+
+`const timerName = "OPTINAL STRING HERE TO CALL YOUR TIMER"`
+`console.time(timerName)`
+
+and then to end the timer
+
+`console.timeEnd(timerName)`
