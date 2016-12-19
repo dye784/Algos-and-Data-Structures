@@ -1,6 +1,6 @@
 # Weighted Quick Union
 
-The problem with QuickUnion, just like linked binary search trees, is that you can have everything attached onto one tree. Essentially instead of a tree you have something that looks like a linked list. Everthing is attached to the same tree vertically. This is why the worst case is linear run time. So having a weighted approach to adding to the tree prevents that. Now we have a logarithmic run time. O(logN)
+The problem with QuickUnion, just like linked binary search trees, is that you can have everything attached onto one tree. Essentially instead of a tree you have something that looks like a linked list. Everthing is attached to the same tree vertically. This is why the worst case is quadratic run time. So having a weighted approach to adding to the tree prevents that. This speeds up our run time. The run time is somewhere between Quadratic and Linear. Almost there! But WE CAN DO BETTER.
 
 Weighted Quick Union is an improvement on Quick Union.
 
@@ -31,3 +31,5 @@ Find out which tree is larger. Link smaller tree to larger tree. Update the arra
 
 # Note:
 No test specs for this because I'm lazy. Also because it's pretty simple to implement. There are only a few modifications to do. Try to implement yourself and then look at the solution if you get stuck or you can just look at the solution and learn from that. ¯\_(ツ)_/¯ <-- lost his arm from writing test specs
+
+See README for Weighted Quick Union Path Compression for full improvements on this algo.
