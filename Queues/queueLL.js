@@ -37,10 +37,4 @@ class Node {
   }
 }
 
-const stack = new QueueLL()
-stack.enqueue("hello")
-stack.enqueue("goodbye")
-
-console.log(stack)
-
 module.exports = QueueLL
