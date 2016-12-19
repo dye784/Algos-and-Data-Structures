@@ -30,4 +30,7 @@ class Node {
   }
 }
 
-module.exports = StackLL
+module.exports = {
+  StackLL,
+  Node
+}
