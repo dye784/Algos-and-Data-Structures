@@ -30,10 +30,4 @@ class Node {
   }
 }
 
-const stack = new StackLL()
-stack.push("hello")
-stack.push("goodbye")
-
-console.log(stack)
-
 module.exports = StackLL
