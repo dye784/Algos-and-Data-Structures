@@ -21,3 +21,11 @@ When connecting to the root node if you attach the D1 BELOW D2 then you get a tr
 This way we can limit the depth of the tree as we add onto each tree.
 
 Now the tree has a larger breadth but shorter depth. This is easier to handle when searching. Yay!
+
+## The modifications to QuickUnion :
+
+### Data Structure Changes:
+The general data structure remains the same. The only thing we need to add to the structure is another array that holds the size of the tree
+
+### Connect Changes:
+Find out which tree is larger. Link smaller tree to larger tree. Update the arrayOfSizes.
