@@ -30,4 +30,4 @@ The general data structure remains the same. The only thing we need to add to th
 Find out which tree is larger. Link smaller tree to larger tree. Update the arrayOfSizes.
 
 # Note:
-No test specs for this because I'm lazy. Also because it's pretty simple to implement. There are only a few modifications to do. Try to implement yourself and then look at the solution if you get stuck or you can just look at the solution and learn from that. ¯\_(ツ)_/¯
+No test specs for this because I'm lazy. Also because it's pretty simple to implement. There are only a few modifications to do. Try to implement yourself and then look at the solution if you get stuck or you can just look at the solution and learn from that. ¯\_(ツ)_/¯ <-- lost his arm from writing test specs
