@@ -24,7 +24,7 @@ class QueueLL {
     const str = this.head.str
     this.head = this.head.next
 
-    if(isEmpty()) this.tail = null;
+    if(this.isEmpty()) this.tail = null;
 
     return str;
   }
@@ -37,4 +37,7 @@ class Node {
   }
 }
 
-module.exports = QueueLL
+module.exports = {
+  QueueLL,
+  Node
+}
