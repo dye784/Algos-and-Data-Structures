@@ -16,6 +16,6 @@ Luckily we already have a function that finds the root node for us. So that woul
 By adding this one liner to our root function every time we call it we change our tree structure to be more flat.
 
 ## Note:
-Try it out. There's an explanation in the file telling you what the magic one liner does.
+Also no test specs for this. Try it out. There's an explanation in the file telling you what the magic one liner does.
 
 With this improvement we now have something that is close enough to linear run time (O(n)) in practice. It's not exactly linear but for all practical purposes it is linear.
