@@ -1,5 +1,5 @@
-class WeightedQuickUnion {
-  constructor(length) { // adds arrayOfSizes all starting at depth 1
+class WeightedQuickUnionPathCompressed {
+  constructor(length) {
     this.arrayOfIds = Array(length);
     this.arrayOfSizes = Array(length);
 
@@ -21,19 +21,15 @@ class WeightedQuickUnion {
     return this.root(firstIndex) === this.root(secondIndex)
   }
 
-  // weighs trees on depth
-  // connects tree of less depth to the tree of greater than or equal depth
   connect(firstIndex, secondIndex) {
     let firstId = this.root(firstIndex)
     let secondId = this.root(secondIndex)
 
-    // minor optimization to not run rest of code if they have the same id
     if(firstId === secondId) return;
 
-    // attach based on depth
     if(this.arrayOfSizes[firstIndex] < this.arrayOfSizes[secondIndex]) {
       this.arrayOfIds[firstId] = secondId;
-      this.arrayOfSizes[firstId]++; //increment depth of tree
+      this.arrayOfSizes[firstId]++;
     } else {
       this.arrayOfIds[secondId] = firstId;
       this.arrayOfSizes[secondId]++;
@@ -41,4 +37,4 @@ class WeightedQuickUnion {
   }
 }
 
-module.exports = WeightedQuickUnion
+module.exports = WeightedQuickUnionPathCompressed

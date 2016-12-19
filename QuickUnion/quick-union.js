@@ -1,5 +1,3 @@
-// O(n) Quadratic time. Linear Time. Pretty good
-
 class QuickUnion { // Union Union Algo
 
   // starts out the same as the QuickFindUF algo
