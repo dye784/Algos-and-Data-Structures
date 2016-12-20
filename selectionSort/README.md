@@ -1,7 +1,7 @@
 # Selection Sort
 
 ### What does it do?
-Selection sort algorithm is one that scans through an unsorted array finds the minimum/maximum and swaps it with the that element with the first sorted element
+Selection sort algorithm is one that scans through an unsorted array finds the minimum/maximum and swaps it with the that element with the first sorted element. Since this sorting method scans through the array twice for one sorting operation it has a quadratic run time (O(n^2)).
 
 Example:
 
