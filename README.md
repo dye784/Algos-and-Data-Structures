@@ -5,3 +5,11 @@
 
 
 ### Most of these implementations are what I have learned from the Coursera Princton Introduction to Algos Part 1 Course
+
+
+### TODO:
+1. Test Specs
+  * All sorting algos
+2. READMEs
+  * Insertion Sort
+  * Shell Sort
