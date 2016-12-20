@@ -6,8 +6,8 @@ class InsertionSort {
   sort() {
     let length = this.array.length
 
-    for (var i = 0; i < length; i++) {
-      for (var j = i; j < length; j--) {
+    for (let i = 0; i < length; i++) {
+      for (let j = i; j < length; j--) {
         if(this.isLess(j, j - 1)) this.exchange(j, j - 1)
         else break;
       }

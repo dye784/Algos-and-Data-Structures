@@ -6,11 +6,11 @@ class SelectionSort {
   sort() {
     let length = this.array.length
 
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
 
       let min = i; // index to swap
 
-      for (var j = i + 1; j < length; j++) {
+      for (let j = i + 1; j < length; j++) {
 
         // if the element is less than we adjust min
         if(this.isLess(j, min)) {
