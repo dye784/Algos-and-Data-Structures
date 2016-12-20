@@ -5,9 +5,7 @@ const insertionSort = (array) => {
   for (let i = 0; i < length; i++) {
     for (let j = i; j < length; j--) {
       if(array[j] < array[j - 1]) {
-        let temp = array[j]
-        array[j] = array[j - 1]
-        array[j - 1] = temp;
+        swap(array, j, j - 1)
       } else {
         break;
       }
@@ -15,6 +13,12 @@ const insertionSort = (array) => {
   }
 
   return array
+}
+
+const swap = (array, idx1, idx2) => {
+  let temp = array[idx1];
+  array[idx1] = array[idx2];
+  array[idx2] = temp;
 }
 
 module.exports = insertionSort;

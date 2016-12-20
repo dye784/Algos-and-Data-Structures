@@ -17,9 +17,7 @@ const shellSort = (array) => {
       // is less than this number, we swap
       for (let j = i; j >= h; j -= h) {
         if(array[j] < array[j - h]) {
-          let temp = array[j]
-          array[j] = array[j - h]
-          array[j - h] = temp;
+          swap(array, j, j - h)
         }
       }
 
@@ -31,6 +29,12 @@ const shellSort = (array) => {
   }
 
   return array
+}
+
+const swap = (array, idx1, idx2) => {
+  let temp = array[idx1];
+  array[idx1] = array[idx2];
+  array[idx2] = temp;
 }
 
 module.exports = shellSort;

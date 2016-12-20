@@ -14,13 +14,20 @@ const selectionSort = (array) => {
 
     // if the index and the min index != swap
     if(i !== min) {
-      let temp = array[i]
-      array[i] = array[min]
-      array[min] = temp;
+      swap(array, i, min)
     }
   }
 
   return array
 }
 
-module.exports = selectionSort;
+const swap = (array, idx1, idx2) => {
+  let temp = array[idx1];
+  array[idx1] = array[idx2];
+  array[idx2] = temp;
+}
+
+module.exports = {
+  selectionSort,
+  swap
+};
