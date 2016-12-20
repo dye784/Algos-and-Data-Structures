@@ -43,8 +43,4 @@ class ShellSort {
   }
 }
 
-let arr = [ 4, 5, 7, 6, 3, 2, 1]
-let sort = new ShellSort(arr)
-console.log(sort.sort())
-
 module.exports = ShellSort;
