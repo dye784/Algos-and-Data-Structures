@@ -1,98 +1,112 @@
+const expect = require('chai').expect
+const BinaryHeapMaxPQ = require('./binaryHeapMaxPQ')
 
-class BinaryHeapMaxPQ {
-  constructor(array) {
-    this.array = array;
-    this.size = array.length // make sure length comes before you unshift
-    this.array.unshift(null) // put null in front to make it easier for the arithmetic
-  }
+describe.only('Unordered Max Priority Queue', () => {
+  let BHMPQ;
 
-  isEmpty() {
-    return this.size === 0
-  }
+  beforeEach(() => {
+    BHMPQ = new BinaryHeapMaxPQ(['T', 'P', 'R', 'N', 'H', 'O', 'A', 'E', 'I', 'G'])
+  })
 
-  // when a higher element is placed below a lower element
-  // we need to move it up the tree
-  swim(idx) {
+  describe('Constructor', () => {
+    it('should have array on its property with input array that starts at index 1', () => {
+      expect(BHMPQ).to.have.ownProperty('array')
+      expect(BHMPQ.array).to.deep.equal([null, 'T', 'P', 'R', 'N', 'H', 'O', 'A', 'E', 'I', 'G'])
+    })
 
-    // while idx > 1 because we don't use the 0th index
-    // and array[idx/2] < array[idx]
-    while(idx > 1 && isLess(idx / 2, idx)) {
+    it('should have size on its property and its equal to length of input array excluding index 0', () => {
+      expect(BHMPQ).to.have.ownProperty('size')
+      expect(BHMPQ.size).to.equal(10)
+    })
+  })
 
-      // swap them
-      this.exchange(idx, idx/2)
+  describe('isEmpty', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('isEmpty')
+    })
 
-      // go up to that index
-      idx /= 2
-    }
-  }
+    it('should check if array is empty', () => {
+      expect(BHMPQ.isEmpty()).to.be.false
 
-  // opposite of swim
-  // we try to move the lower element down the tree
-  sink(idx1) {
+      BHMPQ.array = [];
+      BHMPQ.size = 0;
 
-    // while the index is still inside the array
-    while(2 * idx1 <= this.size) {
+      expect(BHMPQ.isEmpty()).to.be.true
+    })
+  })
 
-      // the next index is double
-      let idx2 = 2 * idx1
+  describe('isLess', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('isLess')
+    })
 
-      // if the next index is not the last element and idx2 + 1 is larger, we increment
-      // so we can swap with the
-      if(idx2 < this.size && this.isLess(idx2, idx2 + 1)) idx2++;
+    // it('should receive two indicies and check the array to see if first < second', () => {
+    //   expect(BHMPQ.isLess(0, 1)).to.be.false
+    //   expect(BHMPQ.isLess(1, 0)).to.be.true
+    //   expect(BHMPQ.isLess(2, 5)).to.be.false
+    //   expect(BHMPQ.isLess(3, 1)).to.be.true
+    // })
+  })
 
-      // if idx1 is less than idx2 break
-      if(this.isLess(idx1, idx2)) break;
+  describe('exchange', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('exchange')
+    })
 
-      // swap this element with the element at idx2
-      // now we should be at the index double from before
-      this.exchange(idx1, idx2)
+    // it('should receive two indicies and swap those elements in the array', () => {
+    //   BHMPQ.exchange(0,1)
+    //   expect(BHMPQ.array).to.deep.equal([2,3,5,1,4])
+    //   BHMPQ.exchange(2,4)
+    //   expect(BHMPQ.array).to.deep.equal([2,3,4,1,5])
+    //   BHMPQ.exchange(3,0)
+    //   expect(BHMPQ.array).to.deep.equal([1,3,4,2,5])
+    //   BHMPQ.exchange(2,1)
+    //   expect(BHMPQ.array).to.deep.equal([1,4,3,2,5])
+    // })
+  })
 
-      // we are at idx2 we check again until we reach the right spot
-      idx1 = idx2;
-    }
-  }
+  describe('insert', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('insert')
+    })
 
-  // delete max
-  delMax() {
+    // it('should receive an element and add it to the queue', () => {
+    //   BHMPQ.insert(6)
+    //   expect(BHMPQ.array).to.deep.equal([3,2,5,1,4,6])
+    //   BHMPQ.insert(7)
+    //   expect(BHMPQ.array).to.deep.equal([3,2,5,1,4,6,7])
+    //   BHMPQ.insert(8)
+    //   expect(BHMPQ.array).to.deep.equal([3,2,5,1,4,6,7,8])
+    // })
+  })
 
-    // the max is at the top of the heap which would be index 1
-    let max = this.array[1]
+  describe('delMax', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('delMax')
+    })
 
-    // we swap the top with the end of the array
-    this.exchange(1, this.size--);
+    // it('should swap the max element to end of array', () => {
+    //   BHMPQ.delMax()
+    //   const last = BHMPQ.array[BHMPQ.array.length - 1]
+    //   const maxInArray = Math.max.apply(null, BHMPQ.array)
+    //   expect(last).to.be.equal(maxInArray)
+    // })
 
-    // we need to run the sink because after we swapped things might be out of order
-    this.sink(1);
+    // // After decrementing the size of the array we are saying the last element doesn't exist anymore
+    // it('should decrement the size', () => {
+    //   const sizeBefore = BHMPQ.size
+    //   const correctSizeAfter = BHMPQ.size - 1
+    //   BHMPQ.delMax()
+    //   expect(BHMPQ.size).to.be.equal(correctSizeAfter)
+    // })
 
-    // delete the element
-    this.array[this.size + 1] = null;
+    // it('should replace the "last element"(the element that was deleted already) on insert', () => {
+    //   const last = BHMPQ.array[BHMPQ.size - 1]
+    //   expect(last).to.be.equal(4)
+    //   BHMPQ.delMax()
+    //   BHMPQ.insert(6)
+    //   expect(BHMPQ.array).to.deep.equal([3,2,4,1,6])
+    // })
+  })
 
-    // return the new max
-    return max;
-  }
-
-  // add element into queue
-  insert(element) {
-
-    // add it to the end
-    this.array[this.size++] = element
-
-    // swim because it might be out of order
-    this.swim(this.size)
-  }
-
-  // checks if less
-  isLess(idx1, idx2) {
-    return this.array[idx1] < this.array[idx2]
-  }
-
-  // swaps the two elements in array
-  exchange(idx1, idx2) {
-    let temp = this.array[idx1];
-    this.array[idx1] = this.array[idx2];
-    this.array[idx2] = temp;
-  }
-
-}
-
-module.exports = BinaryHeapMaxPQ;
+})

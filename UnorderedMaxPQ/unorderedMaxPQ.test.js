@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const UnorderedMaxPQ = require('./unorderedMaxPQ')
 
-describe.only('Unordered Max Priority Queue', () => {
+describe('Unordered Max Priority Queue', () => {
   let UMPQ;
 
   beforeEach(() => {
@@ -29,6 +29,7 @@ describe.only('Unordered Max Priority Queue', () => {
       expect(UMPQ.isEmpty()).to.be.false
 
       UMPQ.array = [];
+      UMPQ.size = 0;
 
       expect(UMPQ.isEmpty()).to.be.true
     })
