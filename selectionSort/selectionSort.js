@@ -8,7 +8,7 @@ const selectionSort = (arr) => {
 
     for (let j = i + 1; j < length; j++) {
 
-      // if the jth (i.e. current unsorted) element < min's value j becomes new min
+      // if the jth (i.e. current unsorted) element < minimumIdx's value, j becomes the new minimumIdx
       if (arr[j] < arr[minimumIdx]) minimumIdx = j
     }
 
@@ -23,8 +23,8 @@ const selectionSort = (arr) => {
 }
 
 
-const swap = (arr, idx1, idx2) => {
-  [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+const swap = (arr, idxA, idxB) => {
+  [arr[idxA], arr[idxB]] = [arr[idxB], arr[idxA]];
 }
 
 
