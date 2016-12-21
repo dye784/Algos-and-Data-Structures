@@ -48,8 +48,4 @@ class UnorderedMaxPQ {
   }
 }
 
-let array = [1,2,4,6,5]
-let PQ = new UnorderedMaxPQ(array)
-console.log(PQ.delMax())
-
 module.exports = UnorderedMaxPQ;
