@@ -4,17 +4,17 @@ const selectionSort = (arr) => {
 
   for (let i = 0; i < length - 1; i++) {  // Final element will have already been sorted
 
-    let min = i;  // index to swap
+    let minimumIdx = i;  // index to swap
 
     for (let j = i + 1; j < length; j++) {
 
-      // if the jth element < min's value j becomes new min
-      if (arr[j] < arr[min]) min = j
+      // if the jth (i.e. current unsorted) element < min's value j becomes new min
+      if (arr[j] < arr[minimumIdx]) minimumIdx = j
     }
 
-    // if the ith (1st unsorted) index !== the min index swap
-    if (i !== min) {
-      swap(arr, i, min)
+    // if the ith (i.e. 1st unsorted) index !== the min's index swap
+    if (i !== minimumIdx) {
+      swap(arr, i, minimumIdx)
     }
 
   }
