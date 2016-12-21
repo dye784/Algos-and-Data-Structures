@@ -16,8 +16,4 @@
 ### TODO:
 1. Test Specs
   * All sorting algos
-2. READMEs
-  * Insertion Sort
-  * Shell Sort
-
-
+2. Maybe write better README's for sorting algos
