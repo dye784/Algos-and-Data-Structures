@@ -2,7 +2,8 @@
 
 ## Starting
 1. run `npm install`
-2. Add `.only` to the `.test.js` file you want to work on
+2. Add `.only` to the first `describe` in the `.test.js` file you want to work on
+  * like so: `describe.only('FANCY ALGO', () => {})`
 3. run `npm test`
 4. ???
 5. Profit
