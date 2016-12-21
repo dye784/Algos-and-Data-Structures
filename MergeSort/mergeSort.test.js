@@ -32,7 +32,7 @@ describe('Merge sort', function () {
       expect(merge([1, 2, 3, 4], [5, 6, 7, 8])).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8]);
     });
 
-    it('combines sorted arrays of undeep.equal lengths into one sorted array', function () {
+    it('combines sorted arrays of unequal lengths into one sorted array', function () {
       expect(merge([1, 2, 3, 7, 9, 11], [4, 5, 50])).to.deep.equal([1, 2, 3, 4, 5, 7, 9, 11, 50]);
     });
 
