@@ -16,13 +16,14 @@ class BinaryHeapMaxPQ {
 
     // while idx > 1 because we don't use the 0th index
     // and array[idx/2] < array[idx]
-    while(idx > 1 && isLess(idx / 2, idx)) {
+
+    while(idx > 1 && this.isLess(Math.floor(idx / 2), idx)) {
 
       // swap them
-      this.exchange(idx, idx / 2)
+      this.exchange(idx, Math.floor(idx / 2))
 
       // go up to that index
-      idx /= 2
+      idx = Math.floor(idx / 2)
     }
   }
 
@@ -40,8 +41,8 @@ class BinaryHeapMaxPQ {
       // so we can swap with the
       if(idx2 < this.size && this.isLess(idx2, idx2 + 1)) idx2++;
 
-      // if idx1 is less than idx2 break
-      if(this.isLess(idx1, idx2)) break;
+      // if idx1 element is not less than idx2 element break
+      if(!this.isLess(idx1, idx2)) break;
 
       // swap this element with the element at idx2
       // now we should be at the index double from before
@@ -75,7 +76,7 @@ class BinaryHeapMaxPQ {
   insert(element) {
 
     // add it to the end
-    this.array[this.size++] = element
+    this.array[++this.size] = element
 
     // swim because it might be out of order
     this.swim(this.size)
@@ -94,5 +95,10 @@ class BinaryHeapMaxPQ {
   }
 
 }
+
+// BHMPQ = new BinaryHeapMaxPQ(['T', 'P', 'R', 'N', 'H', 'O', 'A', 'E', 'I', 'G'])
+// BHMPQ.insert('S')
+// BHMPQ.delMax()
+// console.log(BHMPQ.array)
 
 module.exports = BinaryHeapMaxPQ;
