@@ -1,30 +1,31 @@
+const selectionSort = (arr) => {
 
-const selectionSort = (array) => {
-  let length = array.length
+  let length = arr.length
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length - 1; i++) {  // Final element will have already been sorted
 
-    let min = i; // index to swap
+    let minimumIdx = i;  // index to swap
 
     for (let j = i + 1; j < length; j++) {
 
-      // if the element is less than we adjust min
-      if(array[j] < array[min]) min = j
+      // if the jth (i.e. current unsorted) element < minimumIdx's value, j becomes the new minimumIdx
+      if (arr[j] < arr[minimumIdx]) minimumIdx = j
     }
 
-    // if the index and the min index != swap
-    if(i !== min) {
-      swap(array, i, min)
+    // if the ith (i.e. 1st unsorted) index !== the min's index swap
+    if (i !== minimumIdx) {
+      swap(arr, i, minimumIdx)
     }
+
   }
 
-  return array
+  return arr;
 }
 
-const swap = (array, idx1, idx2) => {
-  let temp = array[idx1];
-  array[idx1] = array[idx2];
-  array[idx2] = temp;
+
+const swap = (arr, idxA, idxB) => {
+  [arr[idxA], arr[idxB]] = [arr[idxB], arr[idxA]];  // Swaps the two indices' values using ES6 array destructuring assignment
 }
+
 
 module.exports = selectionSort;
