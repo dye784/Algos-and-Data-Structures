@@ -25,7 +25,7 @@ describe('QueueLL Algorithm', () => {
     })
   })
 
-  describe.only('QueueLL', () => {
+  describe('QueueLL', () => {
     let queue;
     let node;
     beforeEach(function() {

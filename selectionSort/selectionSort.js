@@ -27,7 +27,4 @@ const swap = (array, idx1, idx2) => {
   array[idx2] = temp;
 }
 
-module.exports = {
-  selectionSort,
-  swap
-};
+module.exports = selectionSort;
