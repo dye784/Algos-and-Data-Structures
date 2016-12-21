@@ -96,9 +96,4 @@ class BinaryHeapMaxPQ {
 
 }
 
-// BHMPQ = new BinaryHeapMaxPQ(['T', 'P', 'R', 'N', 'H', 'O', 'A', 'E', 'I', 'G'])
-// BHMPQ.insert('S')
-// BHMPQ.delMax()
-// console.log(BHMPQ.array)
-
 module.exports = BinaryHeapMaxPQ;
