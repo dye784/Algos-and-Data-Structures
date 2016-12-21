@@ -1,30 +1,31 @@
+const selectionSort = (arr) => {
 
-const selectionSort = (array) => {
-  let length = array.length
+  let length = arr.length
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length - 1; i++) {  // Final element will have already been sorted
 
-    let min = i; // index to swap
+    let min = i;  // index to swap
 
     for (let j = i + 1; j < length; j++) {
 
-      // if the element is less than we adjust min
-      if(array[j] < array[min]) min = j
+      // if the jth element < min's value j becomes new min
+      if (arr[j] < arr[min]) min = j
     }
 
-    // if the index and the min index != swap
-    if(i !== min) {
-      swap(array, i, min)
+    // if the ith (1st unsorted) index !== the min index swap
+    if (i !== min) {
+      swap(arr, i, min)
     }
+
   }
 
-  return array
+  return arr;
 }
 
-const swap = (array, idx1, idx2) => {
-  let temp = array[idx1];
-  array[idx1] = array[idx2];
-  array[idx2] = temp;
+
+const swap = (arr, idx1, idx2) => {
+  [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
 }
+
 
 module.exports = selectionSort;

@@ -1,24 +1,28 @@
 
-const insertionSort = (array) => {
-  let length = array.length
+const insertionSort = (arr) => {
 
-  for (let i = 0; i < length; i++) {
-    for (let j = i; j < length; j--) {
-      if(array[j] < array[j - 1]) {
-        swap(array, j, j - 1)
-      } else {
-        break;
-      }
+  let length = arr.length
+
+  for (let i = 1; i < length; ++i) {
+
+    const elementToSort = arr[i];
+    let j = i;
+
+    while (j > 0 && elementToSort < arr[j - 1]) {
+      arr[j] = arr[j - 1];
+      --j;
+
+      // Alternatively:
+      // --j
     }
+
+    arr[j] = elementToSort;
+
+    // Then here:
+    // arr.splice(j, 0, elementToSort)
+
   }
 
-  return array
-}
+  return arr;
 
-const swap = (array, idx1, idx2) => {
-  let temp = array[idx1];
-  array[idx1] = array[idx2];
-  array[idx2] = temp;
 }
-
-module.exports = insertionSort;
