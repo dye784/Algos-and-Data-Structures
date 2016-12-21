@@ -24,7 +24,7 @@ const selectionSort = (arr) => {
 
 
 const swap = (arr, idxA, idxB) => {
-  [arr[idxA], arr[idxB]] = [arr[idxB], arr[idxA]];
+  [arr[idxA], arr[idxB]] = [arr[idxB], arr[idxA]];  // Swaps the two indices' values using ES6 array destructuring assignment
 }
 
 
