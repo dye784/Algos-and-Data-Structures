@@ -56,8 +56,7 @@ xdescribe('Heap Sort for Binary Heap', () => {
     it('should be a property on the class', () => {
       expect(HS).to.have.property('exchange')
     })
-    // 1 2 3 4 5 6 7 8 9 10 11
-    // S O R T E X A M P L  E
+
     it('should receive two indicies and swap those elements in the array', () => {
       HS.exchange(1,2)
       expect(HS.array).to.deep.equal('OSRTEXAMPLE'.split(''))
@@ -75,8 +74,17 @@ xdescribe('Heap Sort for Binary Heap', () => {
       expect(HS).to.have.property('sink')
     })
 
-    it('should ', () => {
-
+    it('should move elements in the tree down to appropriate place', () => {
+      HS.sink(5, 11)
+      expect(HS.array).to.deep.equal('SORTLXAMPEE'.split(''))
+      HS.sink(4, 11)
+      expect(HS.array).to.deep.equal('SORTLXAMPEE'.split(''))
+      HS.sink(3, 11)
+      expect(HS.array).to.deep.equal('SOXTLRAMPEE'.split(''))
+      HS.sink(2, 11)
+      expect(HS.array).to.deep.equal('STXPLRAMOEE'.split(''))
+      HS.sink(1, 11)
+      expect(HS.array).to.deep.equal('XTSPLRAMOEE'.split(''))
     })
   })
 

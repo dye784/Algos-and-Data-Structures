@@ -4,7 +4,9 @@
   "description": "",
   "main": "quick-find.js",
   "dependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0"
