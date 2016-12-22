@@ -1,53 +1,44 @@
 'use strict';
 
-const expect = require('chai').expect;
-const { insertionSort, swap } = require('./insertionSort');
+const expect = require('chai').expect,
+      sinon = require('sinon');
 
-xdescribe('Merge sort', function () {
+require('chai').use(require('sinon-chai'));
 
-  describe('split', function () {
+const insertionSort = require('./insertionSortStart');
 
-    it('splits an array in half', function () {
-      expect(split([])).to.deep.equal([[], []]);
-    });
+xdescribe('Insertion sort', function() {
 
-    it('splits array of even length down the middle', function () {
-      expect(split([1, 2])).to.deep.equal([[1], [2]]);
-    });
-
-    it('splits array of odd length down the middle, kind of', function () {
-      expect(split([1, 2, 3])).to.deep.equal([[1], [2, 3]]);
-    });
-
+  it('sorts the array', function() {
+    expect(insertionSort.insertionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
   });
 
-  describe('merge', function () {
 
-    it('combines two arrays into one', function () {
-      expect(merge([], [])).to.deep.equal([]);
+  describe('shiftElement', function() {
+
+    let shiftElementSpy;
+
+    beforeEach(function() {
+      shiftElementSpy = sinon.spy(insertionSort, 'shiftElement');
     });
 
-    it('combines two sorted arrays of deep.equal length into one sorted array', function () {
-      expect(merge([1, 3, 9], [2, 6, 15])).to.deep.equal([1, 2, 3, 6, 9, 15]);
-      expect(merge([1, 2, 3, 4], [5, 6, 7, 8])).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8]);
-    });
+    afterEach(function() {
+      shiftElementSpy.restore();
+    })
 
-    it('combines sorted arrays of unequal lengths into one sorted array', function () {
-      expect(merge([1, 2, 3, 7, 9, 11], [4, 5, 50])).to.deep.equal([1, 2, 3, 4, 5, 7, 9, 11, 50]);
-    });
 
-  });
+    it('sorts in the right order', function() {
+      const testArr = [2, 1, 10, 4, 5, 20]
+      const sorted = insertionSort.insertionSort(testArr);
 
-  describe('mergeSort', function () {
+      expect(sorted).to.deep.equal([1, 2, 4, 5, 10, 20]);
 
-    it('returns a sorted array even if it\'s 0 or 1 elements long', function () {
-      expect(mergeSort([])).to.deep.equal([]);
-      expect(mergeSort([42])).to.deep.equal([42]);
-    });
+      expect(shiftElementSpy).to.have.been.calledWith(testArr, 1, 1);
+      expect(shiftElementSpy).to.have.been.calledWith(testArr, 2, 10);
+      expect(shiftElementSpy).to.have.been.calledWith(testArr, 3, 4);
+      expect(shiftElementSpy).to.have.been.calledWith(testArr, 4, 5);
+      expect(shiftElementSpy).to.have.been.calledWith(testArr, 5, 20);
 
-    it('...actually merge sorts', function () {
-      const sorted = mergeSort([29, 8, 100, 17, 60, 43, -20]);
-      expect(sorted).to.deep.equal([-20, 8, 17, 29, 43, 60, 100]);
     });
 
   });

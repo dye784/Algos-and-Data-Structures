@@ -16,7 +16,7 @@ const selectionSort = function(arr) {
 
     // if the ith (i.e. 1st unsorted) index !== the min's index swap
     if (i !== minimumIdx) {
-      this.swap(arr, i, minimumIdx)
+      this.swap(arr, i, minimumIdx);  // When the test calls `swap` it' ll be in the module.export's context
     }
 
   }

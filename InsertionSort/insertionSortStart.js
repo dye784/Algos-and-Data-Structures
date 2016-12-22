@@ -1,10 +1,13 @@
+'use strict'
 
-const insertionSort = (array) => {
+module.exports = {
 
-}
+	insertionSort: function(arr){
 
-const swap = (array, idx1, idx2) => {
+	},
 
-}
+	shiftElement: function(arr, startIdx, elToSort){
 
-module.exports = insertionSort;
+	}
+
+};
