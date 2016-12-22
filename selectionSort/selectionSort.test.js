@@ -14,7 +14,6 @@ xdescribe('Selection sort', function() {
     expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
   });
 
-
   describe('Swap', function() {
 
     let swapSpy;

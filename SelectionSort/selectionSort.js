@@ -24,11 +24,9 @@ const selectionSort = function(arr) {
   return arr;
 };
 
-
 const swap = function(arr, idxA, idxB) {
   [arr[idxA], arr[idxB]] = [arr[idxB], arr[idxA]];  // Swaps the two indices' values using ES6 array destructuring assignment
 }
-
 
 module.exports = {
   selectionSort,
