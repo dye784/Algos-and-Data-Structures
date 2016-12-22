@@ -120,7 +120,7 @@ describe('Binary Heap Max Priority Queue', () => {
     // After decrementing the size of the array we are saying the last element doesn't exist anymore
     it('should decrement the size', () => {
       const sizeBefore = BHMPQ.size
-      const correctSizeAfter = BHMPQ.size - 1
+      const correctSizeAfter = sizeBefore - 1
       BHMPQ.delMax()
       expect(BHMPQ.size).to.be.equal(correctSizeAfter)
     })
