@@ -10,15 +10,13 @@ const selectionSort = require('./selectionSort');
 
 describe('Selection sort', function() {
 
-  it('is a function', function() {
-    expect((selectionSort.selectionSort)).to.be.a('function');
-  });
+  // it('is a function', function() {
+  //   expect((selectionSort.selectionSort)).to.be.a('function');
+  // });
 
-  it('sorts the array', function() {
-    expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
-  });
-
-  console.log(selectionSort)
+  // it('sorts the array', function() {
+  //   expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
+  // });
 
   describe('Swap', function() {
 
@@ -37,14 +35,28 @@ describe('Selection sort', function() {
     });
 
     it('sorts in the right order', function() {
-      // spyOn(window, 'inOrder').and.callThrough();
-      // var save = sinon.spy(Database, 'save');
-      // setupNewUser({ name: 'test' }, function() { });
-      // save.restore();
-      // sinon.assert.calledOnce(save);
-      selectionSort.selectionSort([10, 9, 1, 2, 5, 4])
-      console.log(swapSpy.callCount);
-      // sinon.assert.calledOnce(swapSpy);
+      // it('2nd example using a spy', function () {
+      //   logger = {
+      //     log: function (msg) {
+      //       console.log(msg);
+      //     }
+      //   };
+
+      //   // Spying on the log function
+      //   sinon.spy(logger, 'log');
+
+      //   var greetings = moduleA.greet('James', logger);
+
+      //   expect(logger.log).to.have.been.calledOnce;
+      //   expect(logger.log).to.have.been.calledWith('Greeting: James');
+
+      //   expect(greetings).to.equal('Hello James');
+
+      //   logger.log.restore();
+      // });
+      const testArr = [2, 1]
+      const test = selectionSort.selectionSort(testArr);
+      console.log(swapSpy.callCount)
     });
 
   });
