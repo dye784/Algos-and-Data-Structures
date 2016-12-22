@@ -1,28 +1,25 @@
 # Selection Sort
 
-### What does it do?
-Selection sort algorithm is one that scans through an unsorted array finds the minimum/maximum and swaps it with the that element with the first sorted element. Since this sorting method scans through the array twice for one sorting operation it has a quadratic run time (O(n^2)).
+### What is it?
+Selection sort relies on the concept of dividing a list into sorted and unsorted sections. It iterates through the list and moves the smallest unsorted value to the end of the sorted section.
 
-Example:
+Because we need to iterate through the entire list, and within that loop iterate through the unsorted section to find the minimum for each remaining unsorted element, this algorithm has a run time of O(n^2), or a "quadratic" run time.
 
-[2, 4, 1, 3]
 
-findMin 1
-swap with first element because it is not sorted
+### Hint (Approach):
 
-[1, 4, 2, 3]
+Given array `[2, 4, 1, 3]`
 
-findMin in unsorted elements [ 4, 2, 3 ] => 2
-swap min with next unsorted element 4
+Find the current unsorted minimum (`1`) and swap it with the first unsorted element (`2`)
 
-[1, 2, 4, 3]
+`[1, 4, 2, 3]`
 
-findMin in unsorted elements [ 4, 3 ] => 3
-swap min with next unsorted element 4
+Find the current unsorted minimum (`2`) in unsorted section `[ 4, 2, 3 ]`
+Swap the unsorted minimum (`2`) with the first unsorted element (`4`)
 
-[1, 2, 3, 4] sorted!
+`[1, 2, 4, 3]`
 
-### What do we need?
-1. A function to compare the two elements
-2. A function to swap the elements
-3. A function that iterates through the array and implements the previous 2 functions
+Find the current unsorted minimum (`3`) in unsorted section `[ 4, 3 ]`
+Swap the unsorted minimum (`3`) with the first unsorted element (`4`)
+
+Since the last element will necessarily be sorted we don't need to check it.
