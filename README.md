@@ -19,7 +19,5 @@
 ### TODO:
 1. Test Specs
   * All sorting algos
-  * WeightedQuickUnion
-  * WeightedQuickUnionPath Compressed
   * KnuthShuffle
 2. Maybe write better README's for sorting algos
