@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const BinaryHeapMaxPQ = require('./binaryHeapMaxPQ')
 
-xdescribe('Binary Heap Max Priority Queue', () => {
+describe('Binary Heap Max Priority Queue', () => {
   let BHMPQ;
 
   beforeEach(() => {
@@ -83,7 +83,11 @@ xdescribe('Binary Heap Max Priority Queue', () => {
     })
 
     it('should move elements up the binary tree', () => {
-
+      const TPRNHOAEIGS = 'TPRNHOAEIGS'
+      BHMPQ.array = [null, ...TPRNHOAEIGS.split('')]
+      BHMPQ.size = TPRNHOAEIGS.length
+      BHMPQ.swim(11)
+      expect(BHMPQ.array).to.deep.equal([null, ...'TSRNPOAEIGH'.split('')])
     })
   })
 
@@ -94,7 +98,11 @@ xdescribe('Binary Heap Max Priority Queue', () => {
     })
 
     it('should move elements down the binary tree', () => {
-
+      const HSRNPOAEIG = 'HSRNPOAEIG'
+      BHMPQ.array = [null, ...HSRNPOAEIG.split('')]
+      BHMPQ.size = HSRNPOAEIG.length
+      BHMPQ.sink(1)
+      expect(BHMPQ.array).to.deep.equal([null, ...'SPRNHOAEIG'.split('')])
     })
   })
 
