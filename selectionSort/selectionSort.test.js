@@ -5,18 +5,19 @@ const expect = require('chai').expect,
 
 require('chai').use(require('sinon-chai'));
 
-// const { selectionSort, swap } = require('./selectionSort');
-const selectionSort = require('./selectionSort');
+const selectionSort = require('./selectionSortStart');
 
-describe('Selection sort', function() {
 
-  // it('is a function', function() {
-  //   expect((selectionSort.selectionSort)).to.be.a('function');
-  // });
+xdescribe('Selection sort', function() {
 
-  // it('sorts the array', function() {
-  //   expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
-  // });
+  it('is a function', function() {
+    expect((selectionSort.selectionSort)).to.be.a('function');
+  });
+
+  it('sorts the array', function() {
+    expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
+  });
+
 
   describe('Swap', function() {
 
@@ -30,34 +31,24 @@ describe('Selection sort', function() {
       swapSpy.restore();
     })
 
+
     it('is a function', function() {
       expect((selectionSort.swap)).to.be.a('function');
     });
 
+
     it('sorts in the right order', function() {
-      // it('2nd example using a spy', function () {
-      //   logger = {
-      //     log: function (msg) {
-      //       console.log(msg);
-      //     }
-      //   };
 
-      //   // Spying on the log function
-      //   sinon.spy(logger, 'log');
+      const testArr = [2, 1, 10, 4, 5, 20]
+      const sorted = selectionSort.selectionSort(testArr);
 
-      //   var greetings = moduleA.greet('James', logger);
+      expect(sorted).to.deep.equal([1, 2, 4, 5, 10, 20]);
+      expect(swapSpy).to.have.been.calledWith(testArr, 0, 1);
+      expect(swapSpy).to.have.been.calledWith(testArr, 2, 3);
+      expect(swapSpy).to.have.been.calledWith(testArr, 3, 4);
 
-      //   expect(logger.log).to.have.been.calledOnce;
-      //   expect(logger.log).to.have.been.calledWith('Greeting: James');
-
-      //   expect(greetings).to.equal('Hello James');
-
-      //   logger.log.restore();
-      // });
-      const testArr = [2, 1]
-      const test = selectionSort.selectionSort(testArr);
-      console.log(swapSpy.callCount)
     });
 
   });
+
 });
