@@ -1,7 +1,11 @@
 const expect = require('chai').expect
 const BinaryHeapMaxPQ = require('./binaryHeapMaxPQStart')
 
-xdescribe('Unordered Max Priority Queue', () => {
+describe('Unordered Max Priority Queue', () => {
+  const SOMECLEVERJOKEHERE = 'SOMECLEVERJOKEHERE';
+  const LOTSOFMEMES = 'LOTSOFMEMES';
+  const SOMANYHEAPSSENDHALPPLS = 'SOMANYHEAPSSENDHALPPLS';
+  const FULLSTACK = 'FULLSTACK';
   let BHMPQ;
 
   beforeEach(() => {
@@ -77,13 +81,31 @@ xdescribe('Unordered Max Priority Queue', () => {
   })
 
 // TODO: WRITE SWIM TEST SPECS
-  describe('swim', () => {
+  describe.only('swim', () => {
     it('should be a property on the class', () => {
       expect(BHMPQ).to.have.property('swim')
     })
 
-    it('should ', () => {
+    it('should move elements up the binary tree', () => {
+      HS.array = SOMECLEVERJOKEHERE.split('')
+      HS.size = SOMECLEVERJOKEHERE.length
+      HS.sort()
+      expect(HS.array).to.deep.equal(SOMECLEVERJOKEHERE.split('').sort())
 
+      HS.array = LOTSOFMEMES.split('')
+      HS.size = LOTSOFMEMES.length
+      HS.sort()
+      expect(HS.array).to.deep.equal(LOTSOFMEMES.split('').sort())
+
+      HS.array = SOMANYHEAPSSENDHALPPLS.split('')
+      HS.size = SOMANYHEAPSSENDHALPPLS.length
+      HS.sort()
+      expect(HS.array).to.deep.equal(SOMANYHEAPSSENDHALPPLS.split('').sort())
+
+      HS.array = FULLSTACK.split('')
+      HS.size = FULLSTACK.length
+      HS.sort()
+      expect(HS.array).to.deep.equal(FULLSTACK.split('').sort())
     })
   })
 
@@ -93,7 +115,7 @@ xdescribe('Unordered Max Priority Queue', () => {
       expect(BHMPQ).to.have.property('sink')
     })
 
-    it('should ', () => {
+    it('should move elements down the binary tree', () => {
 
     })
   })

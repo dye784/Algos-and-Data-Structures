@@ -1,17 +1,18 @@
 const expect = require('chai').expect
 const HeapSort = require('./heapSort')
 
-describe.only('Heap Sort for Binary Heap', () => {
+xdescribe('Heap Sort for Binary Heap', () => {
+  const SORTEXAMPLE = 'SORTEXAMPLE';
   let HS;
 
   beforeEach(() => {
-    HS = new HeapSort('SORTEXAMPLE'.split(''))
+    HS = new HeapSort(SORTEXAMPLE.split(''))
   })
 
   describe('Constructor', () => {
     it('should have array on its property with input array that starts at index 1', () => {
       expect(HS).to.have.ownProperty('array')
-      expect(HS.array).to.deep.equal('SORTEXAMPLE'.split(''))
+      expect(HS.array).to.deep.equal(SORTEXAMPLE.split(''))
     })
 
     it('should have size on its property and its equal to length of input array excluding index 0', () => {
@@ -85,13 +86,13 @@ describe.only('Heap Sort for Binary Heap', () => {
     })
 
     it('should sort the heap', () => {
-      const SOMECLEVERJOKEHERE = 'SOMECLEVERJOKEHERE'
-      const LOTSOFMEMES = 'LOTSOFMEMES'
-      const ALPHABET = 'ALPHABET'
-      const FULLSTACK = 'FULLSTACK'
+      const SOMECLEVERJOKEHERE = 'SOMECLEVERJOKEHERE';
+      const LOTSOFMEMES = 'LOTSOFMEMES';
+      const SOMANYHEAPSSENDHALPPLS = 'SOMANYHEAPSSENDHALPPLS';
+      const FULLSTACK = 'FULLSTACK';
 
       HS.sort()
-      expect(HS.array).to.deep.equal('SORTEXAMPLE'.split('').sort())
+      expect(HS.array).to.deep.equal(SORTEXAMPLE.split('').sort())
 
       HS.array = SOMECLEVERJOKEHERE.split('')
       HS.size = SOMECLEVERJOKEHERE.length
@@ -103,10 +104,10 @@ describe.only('Heap Sort for Binary Heap', () => {
       HS.sort()
       expect(HS.array).to.deep.equal(LOTSOFMEMES.split('').sort())
 
-      HS.array = ALPHABET.split('')
-      HS.size = ALPHABET.length
+      HS.array = SOMANYHEAPSSENDHALPPLS.split('')
+      HS.size = SOMANYHEAPSSENDHALPPLS.length
       HS.sort()
-      expect(HS.array).to.deep.equal(ALPHABET.split('').sort())
+      expect(HS.array).to.deep.equal(SOMANYHEAPSSENDHALPPLS.split('').sort())
 
       HS.array = FULLSTACK.split('')
       HS.size = FULLSTACK.length
