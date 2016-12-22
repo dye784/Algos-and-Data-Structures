@@ -10,10 +10,6 @@ const selectionSort = require('./selectionSortStart');
 
 xdescribe('Selection sort', function() {
 
-  it('is a function', function() {
-    expect((selectionSort.selectionSort)).to.be.a('function');
-  });
-
   it('sorts the array', function() {
     expect(selectionSort.selectionSort([10, 9, 1, 2, 5, 4])).to.deep.equal([1, 2, 4, 5, 9, 10]);
   });
@@ -30,11 +26,6 @@ xdescribe('Selection sort', function() {
     afterEach(function() {
       swapSpy.restore();
     })
-
-
-    it('is a function', function() {
-      expect((selectionSort.swap)).to.be.a('function');
-    });
 
 
     it('sorts in the right order', function() {

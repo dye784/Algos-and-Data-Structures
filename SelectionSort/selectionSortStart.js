@@ -1,10 +1,12 @@
-// vvvvvvvvv  YOUR CODE HERE  vvvvvvvvv
-
 module.exports = {
 
-	selectionSort: null,
+	selectionSort: function(arr) {
+
+	},
 
 
-	swap: null
+	swap: function(arr, idxA, idxB) {
+
+	}
 
 };
