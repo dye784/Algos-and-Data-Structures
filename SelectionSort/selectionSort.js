@@ -28,4 +28,4 @@ const swap = (arr, idxA, idxB) => {
 }
 
 
-module.exports = selectionSort;
+module.exports = { selectionSort, swap };
