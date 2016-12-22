@@ -1,6 +1,7 @@
-module.exports = QuickUnion;
 
 class QuickUnion {
 
 }
+
+module.exports = QuickUnion;
 

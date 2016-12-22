@@ -1,5 +1,6 @@
-module.exports = QuickFindUF
-
 class QuickFindUF {
 
 }
+
+module.exports = QuickFindUF
+

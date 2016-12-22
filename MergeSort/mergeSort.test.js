@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const { mergeSort, split, merge } = require('./mergeSortStart');
 
-describe('Merge sort', function () {
+xdescribe('Merge sort', function () {
 
   describe('split', function () {
 
