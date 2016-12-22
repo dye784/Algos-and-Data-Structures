@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
-const QuickUnion = require('./quick-union');
+const QuickUnion = require('./quick-unionStart');
 
-describe('Quick Union Algorithm', () => {
+xdescribe('Quick Union Algorithm', () => {
   describe('QuickUnion', () => {
 
     let newQU;

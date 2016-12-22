@@ -2,7 +2,10 @@
 
 ## Starting
 1. run `npm install`
-2. Add `.only` to the `.test.js` file you want to work on
+2. Select Algo/Data Structure you want to work on
+  * remove `x` from `xdescribe` in the `.test.js` file
+  * Add `.only` to the first `describe` in the `.test.js` file
+  * like so: `describe.only('FANCY ALGO', () => {})`
 3. run `npm test`
 4. ???
 5. Profit
@@ -16,4 +19,7 @@
 ### TODO:
 1. Test Specs
   * All sorting algos
+  * WeightedQuickUnion
+  * WeightedQuickUnionPath Compressed
+  * KnuthShuffle
 2. Maybe write better README's for sorting algos
