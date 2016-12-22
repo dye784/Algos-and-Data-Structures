@@ -20,4 +20,5 @@
 1. Test Specs
   * All sorting algos
   * KnuthShuffle
+  * Heap Sort Readme
 2. Maybe write better README's for sorting algos
