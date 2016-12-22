@@ -76,6 +76,28 @@ xdescribe('Unordered Max Priority Queue', () => {
     })
   })
 
+// TODO: WRITE SWIM TEST SPECS
+  describe('swim', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('swim')
+    })
+
+    it('should ', () => {
+
+    })
+  })
+
+// TODO: WRITE SWIM TEST SPECS
+  describe('sink', () => {
+    it('should be a property on the class', () => {
+      expect(BHMPQ).to.have.property('sink')
+    })
+
+    it('should ', () => {
+
+    })
+  })
+
   describe('delMax', () => {
     it('should be a property on the class', () => {
       expect(BHMPQ).to.have.property('delMax')
