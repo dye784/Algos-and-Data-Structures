@@ -76,7 +76,6 @@ describe('Binary Heap Max Priority Queue', () => {
     })
   })
 
-// TODO: WRITE SWIM TEST SPECS
   describe('swim', () => {
     it('should be a property on the class', () => {
       expect(BHMPQ).to.have.property('swim')
@@ -91,7 +90,6 @@ describe('Binary Heap Max Priority Queue', () => {
     })
   })
 
-// TODO: WRITE SWIM TEST SPECS
   describe('sink', () => {
     it('should be a property on the class', () => {
       expect(BHMPQ).to.have.property('sink')
