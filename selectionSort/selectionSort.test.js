@@ -26,7 +26,6 @@ xdescribe('Selection sort', function() {
       swapSpy.restore();
     })
 
-
     it('sorts in the right order', function() {
 
       const testArr = [2, 1, 10, 4, 5, 20]
