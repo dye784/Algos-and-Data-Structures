@@ -25,7 +25,7 @@ class LLredBlackBST {
 
     if (this.isRed(node.right) && !this.isRed(node.left))      node = this.rotateLeft(node);
     if (this.isRed(node.left)  &&  this.isRed(node.left.left)) node = this.rotateRight(node);
-    if (this.isRed(node.left)  &&  this.isRed(node.right))     this.flipColors(node);
+    if (this.isRed(node.left)  &&  this.isRed(node.right))     this.flipColor(node);
 
     return node;
   }
@@ -47,8 +47,10 @@ class LLredBlackBST {
 
   // makes right leaning 3-tree into left leaning 3-tree
   rotateLeft(node) {
+    if(!node.right) return;
+
     let temp = node.right; // temp var to prevent garbage collection
-    node.right = node.left; // set right connect to be left connection
+    node.right = temp.left; // set right connect to be left connection
     temp.left = node; // set temp left to node So temp has a right and left
     temp.color = node.color; // keep the attachment color(can only be black)
     node.color = RED; // set the new attachment to be red because this is the left
@@ -57,8 +59,10 @@ class LLredBlackBST {
 
   // exact opposite of rotate left for the most part
   rotateRight(node) {
+    if(!node.left) return;
+
     let temp = node.left;
-    node.left = node.right;
+    node.left = temp.right;
     temp.right = node;
     temp.color = node.color;
     node.color = RED;
@@ -85,13 +89,19 @@ class Node {
   }
 }
 
-// let LLRBBST = new LLredBlackBST();
-// LLRBBST.insert('E', 1)
-// // console.log(LLRBBST.root)
-// // expect(LLRBBST).to.deep.equal()
-// LLRBBST.insert('A', 2)
-// console.log(LLRBBST.root)
+// let LLRBBST = new LLredBlackBST()
 
-// for modularity
+//       LLRBBST.insert('S', 1)
+//       LLRBBST.insert('E', 2)
+//       LLRBBST.insert('A', 3)
+//       LLRBBST.insert('R', 4)
+//       LLRBBST.insert('C', 5)
+//       LLRBBST.insert('H', 6)
+//       LLRBBST.insert('X', 7)
+//       LLRBBST.insert('M', 8)
+//       LLRBBST.insert('P', 9)
+//       LLRBBST.insert('L', 10)
+
+//       console.log(LLRBBST.root)
 
 module.exports = { LLredBlackBST, RED, BLACK, Node }
