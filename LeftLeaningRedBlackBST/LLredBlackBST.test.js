@@ -4,6 +4,8 @@ const LLredBlackBST = exportedModules.LLredBlackBST;
 const Node = exportedModules.Node;
 const RED = exportedModules.RED;
 const BLACK = exportedModules.BLACK;
+const sinon = require('sinon');
+require('chai').use(require('sinon-chai'))
 
 describe('RED and BLACK', () => {
   it('should just be equal to the strings RED and BLACK for easier debugging', () => {
@@ -40,21 +42,6 @@ describe('Node', () => {
 })
 
 describe.only('Left Leaning Red Black Binary Search Tree', () => {
-
-  // let SEARCHEXAMPLE = {
-  //   S:
-  //   E:
-  //   A:
-  //   R:
-  //   C:
-  //   H:
-  //   E:
-  //   X:
-  //   A:
-  //   M:
-  //   P:
-  //   L:
-  // }
 
   let LLRBBST;
   beforeEach(() => {
@@ -132,18 +119,21 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
 
   })
 
-  describe('insert', () => {
+  describe.only('insert', () => {
     it('should be a property on the class', () => {
       expect(LLRBBST).to.have.property('insert')
     })
 
     it('should take two parameters and call the _insert function with the root and those two parameters', () => {
-      expect(1).to.equal(2)
+      let _insertSpy = sinon.spy(LLRBBST.insert, 'this._insert')
+      LLRBBST.insert()
+      expect(_insertSpy).to.have.been.called
     })
 
-    it('should set the root color to black function', () => {
-      // LLRBBST.insert('S')
-      // expect(LLRBBST.root.color).to.equal(BLACK)
+    it('should set the root color to black after the _insert function is called', () => {
+      expect(LLRBBST.root).to.be.null
+      LLRBBST.insert('S')
+      expect(LLRBBST.root.color).to.equal(BLACK)
     })
   })
 
