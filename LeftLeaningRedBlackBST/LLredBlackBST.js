@@ -64,6 +64,7 @@ class LLredBlackBST {
 
   // iterates through tree to check if item exists in tree.
   search(key) {
+    debugger;
     let currentNode = this.root;
 
     while(currentNode != null) {
@@ -88,5 +89,20 @@ class Node {
     this.right = right;
   }
 }
+
+// let LLRBBST = new LLredBlackBST()
+      // let aNode = new Node('A', 1)
+      // let rNode = new Node('R', 2)
+      // let tNode = new Node('T', 3)
+      // let zNode = new Node('Z', 4)
+
+      // let leftNode = new Node('E', null, null, aNode, rNode)
+      // let rightNode = new Node('U', null, null, tNode, zNode)
+      // let mid = new Node('S', null, null, leftNode, rightNode)
+      // LLRBBST.root = mid;
+      // console.log(LLRBBST)
+      // // expect(
+      // LLRBBST.search('R')
+      // // ).to.equal(1)
 
 module.exports = { LLredBlackBST, RED, BLACK, Node }

@@ -83,7 +83,23 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
     })
 
     it('should return the value if the search key and the root key are equal', () => {
-      expect(1).to.equal(2)
+      let aNode = new Node('A', 1)
+      let rNode = new Node('R', 2)
+      let tNode = new Node('T', 3)
+      let zNode = new Node('Z', 4)
+
+      let leftNode = new Node('E', 5, null, aNode, rNode)
+      let rightNode = new Node('U', 6, null, tNode, zNode)
+      let mid = new Node('S', 7, null, leftNode, rightNode)
+      LLRBBST.root = mid;
+
+      expect(LLRBBST.search('A')).to.equal(1)
+      expect(LLRBBST.search('R')).to.equals(2)
+      expect(LLRBBST.search('T')).to.equal(3)
+      expect(LLRBBST.search('Z')).to.equal(4)
+      expect(LLRBBST.search('E')).to.equal(5)
+      expect(LLRBBST.search('U')).to.equal(6)
+      expect(LLRBBST.search('S')).to.equal(7)
     })
   })
 
@@ -161,9 +177,7 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
     })
 
     it('should take two parameters and call the _insert function with the root and those two parameters', () => {
-      // let _insertSpy = sinon.spy(LLRBBST.insert, 'this._insert')
-      // LLRBBST.insert()
-      // expect(_insertSpy).to.have.been.called
+      expect(1).to.equal(2)
     })
 
     it('should set the root color to black after the _insert function is called', () => {
