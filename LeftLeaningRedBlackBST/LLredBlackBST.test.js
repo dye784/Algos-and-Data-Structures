@@ -177,7 +177,13 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
     })
 
     it('should take two parameters and call the _insert function with the root and those two parameters', () => {
-      expect(1).to.equal(2)
+      LLRBBST._insert = (root, key, value) => {
+        return { key, value }
+      }
+
+      LLRBBST.insert('k' , 'v')
+      expect(LLRBBST.root.key).to.equal('k')
+      expect(LLRBBST.root.value).to.equal('v')
     })
 
     it('should set the root color to black after the _insert function is called', () => {
