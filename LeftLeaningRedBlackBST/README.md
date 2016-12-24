@@ -1,7 +1,7 @@
 # Left Leaning Red Black Binary Search Tree
 
 # What is it?
-This BST is an simpler implementation of a 2-3 Tree. So what is a 2-3 Tree?
+This BST is a simple implementation of a 2-3 Tree. So what is a 2-3 Tree?
 
 The 2-3 Tree is that:
 
