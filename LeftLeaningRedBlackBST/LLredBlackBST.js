@@ -51,9 +51,9 @@ class LLredBlackBST {
   _insert(node, key, value) {
     if(!node) return new Node(key, value, RED)
 
-    if(key < node.key) node.left = this._insert(node.left, key, value);
+    if(key < node.key)      node.left = this._insert(node.left, key, value);
     else if(key > node.key) node.right = this._insert(node.right, key, value);
-    else node.value = value;
+    else                    node.value = value;
 
     if (this.isRed(node.right) && !this.isRed(node.left))      node = this.rotateLeft(node);
     if (this.isRed(node.left)  &&  this.isRed(node.left.left)) node = this.rotateRight(node);
