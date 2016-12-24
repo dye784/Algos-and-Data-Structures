@@ -1,5 +1,15 @@
-const RED = "RED" // less problems when debugging
-const BLACK = "BLACK"
+const RED = 'RED' // less problems when debugging
+const BLACK = 'BLACK'
+
+class Node {
+  constructor(key, value, color = BLACK, left = null, right = null) {
+    this.key = key;
+    this.value = value;
+    this.color = color;
+    this.left = left;
+    this.right = right;
+  }
+}
 
 class LLredBlackBST {
   constructor() {
@@ -7,7 +17,7 @@ class LLredBlackBST {
   }
 
   isRed(node) {
-    if(node === null) return false;
+    if (node === null) return false;
     return node.color === RED;
   }
 
@@ -15,11 +25,11 @@ class LLredBlackBST {
   search(key) {
     let currentNode = this.root;
 
-    while(currentNode !== null) {
+    while (currentNode !== null) {
       let currentNodeKey = currentNode.key;
 
-      if(key < currentNodeKey) currentNode = currentNode.left
-      else if(key > currentNodeKey) currentNode = currentNode.right
+      if (key < currentNodeKey) currentNode = currentNode.left
+      else if (key > currentNodeKey) currentNode = currentNode.right
       else return currentNode.value
     }
 
@@ -28,7 +38,7 @@ class LLredBlackBST {
 
   // makes right leaning 3-tree into left leaning 3-tree
   rotateLeft(node) {
-    if(!node.right) return;
+    if (!node.right) return;
 
     let temp = node.right; // temp var to prevent garbage collection
     node.right = temp.left; // set right connect to be left connection
@@ -40,7 +50,7 @@ class LLredBlackBST {
 
   // exact opposite of rotate left for the most part
   rotateRight(node) {
-    if(!node.left) return;
+    if (!node.left) return;
 
     let temp = node.left;
     node.left = temp.right;
@@ -66,11 +76,11 @@ class LLredBlackBST {
   }
 
   _insert(node, key, value) {
-    if(!node) return new Node(key, value, RED) // base case
+    if (!node) return new Node(key, value, RED) // base case
 
     // recursively traverse tree to add node
-    if(key < node.key)      node.left = this._insert(node.left, key, value);
-    else if(key > node.key) node.right = this._insert(node.right, key, value);
+    if (key < node.key)      node.left = this._insert(node.left, key, value);
+    else if (key > node.key) node.right = this._insert(node.right, key, value);
     else                    node.value = value; // if key exists we set the value
 
     // restructure tree
@@ -87,16 +97,6 @@ class LLredBlackBST {
     return node; // don't forget to return the node
   }
 
-}
-
-class Node {
-  constructor(key, value, color = BLACK, left = null, right = null) {
-    this.key = key;
-    this.value = value;
-    this.color = color;
-    this.left = left;
-    this.right = right;
-  }
 }
 
 module.exports = { LLredBlackBST, RED, BLACK, Node }
