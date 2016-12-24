@@ -66,7 +66,7 @@ class LLredBlackBST {
   search(key) {
     let currentNode = this.root;
 
-    while(currentNode != null) {
+    while(currentNode !== null) {
       let currentNodeKey = currentNode.key;
 
       if(key < currentNodeKey) currentNode = currentNode.left
