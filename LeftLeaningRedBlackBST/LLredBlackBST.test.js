@@ -87,7 +87,7 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
     })
   })
 
-  describe.only('rotateLeft', () => {
+  describe('rotateLeft', () => {
     it('should be a property on the class', () => {
       expect(LLRBBST).to.have.property('rotateLeft')
     })
@@ -109,12 +109,11 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
       expect(newNode.left.right.color).to.equal(BLACK)
       expect(newNode.right.key).to.equal('T')
       expect(newNode.right.color).to.equal(BLACK)
-
     })
 
   })
 
-  describe.only('rotateRight', () => {
+  describe('rotateRight', () => {
     it('should be a property on the class', () => {
       expect(LLRBBST).to.have.property('rotateLeft')
     })
@@ -144,13 +143,19 @@ describe.only('Left Leaning Red Black Binary Search Tree', () => {
       expect(LLRBBST).to.have.property('flipColor')
     })
 
-    it('should reorient node to lean left if it is leaning right', () => {
-      expect(1).to.equal(2)
+    it('should set a nodes color to red and its children to black', () => {
+      let leftNode = new Node('LEFT', null, RED)
+      let rightNode = new Node('RIGHT', null, RED)
+      let node = new Node('KEY', null, BLACK, leftNode, rightNode)
+      LLRBBST.flipColor(node);
+      expect(node.color).to.equal(RED)
+      expect(node.left.color).to.equal(BLACK)
+      expect(node.right.color).to.equal(BLACK)
     })
 
   })
 
-  describe.only('insert', () => {
+  describe('insert', () => {
     it('should be a property on the class', () => {
       expect(LLRBBST).to.have.property('insert')
     })
