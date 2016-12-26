@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const exportedModules = require('./LLredBlackBST');
+const exportedModules = require('./LLredBlackBSTStart');
 const LLredBlackBST = exportedModules.LLredBlackBST;
 const Node = exportedModules.Node;
 const RED = exportedModules.RED;
