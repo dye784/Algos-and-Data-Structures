@@ -33,16 +33,6 @@ class CircularBuffer {
     return data; // return the data
   }
 
-  // shift(element) {
-
-  // }
-
-  // unshift(element) {
-
-  // }
-  get(index) {
-
-  }
 }
 
 module.exports = CircularBuffer;
