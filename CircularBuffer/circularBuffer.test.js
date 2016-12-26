@@ -51,14 +51,14 @@ describe.only('CircularBuffer', () => {
     it('should insert one item into the buffer at the next index', () => {
       newCB.push(1)
       let solution = Array(8)
-      solution[1] = 1;
+      solution[0] = 1;
       expect(newCB.buffer).to.deep.equal(solution)
     })
 
     it('should be able to circle around and add to the front of the array', () => {
-      let arrBefore = [undefined,1,2,3,4,5,6,7];
+      let arrBefore = [0,1,2,3,4,5,6,7];
       newCB.buffer = arrBefore;
-      newCB.head = 8;
+      newCB.head = 0;
       newCB.push(8);
       let solution = [8,1,2,3,4,5,6,7]
       expect(newCB.buffer).to.deep.equal(solution);
@@ -67,29 +67,41 @@ describe.only('CircularBuffer', () => {
     it('should replace items from the array when it circles around', () => {
       let arrBefore = [8,1,2,3,4,5,6,7];
       newCB.buffer = arrBefore;
-      newCB.head = 0;
+      newCB.head = 1;
       newCB.push(9);
       let solution = [8,9,2,3,4,5,6,7]
       expect(newCB.buffer).to.deep.equal(solution);
     })
 
     it('should work with MANY pushes', () => {
-      for(let i = 1; i < 20; i++) {
+       for(let i = 0; i < 42; i++) {
         newCB.push(i);
       }
-      let solution = [18,19,11,12,13,14,15,16,17]
+      let solution = [40,41,34,35,36,37,38,39]
+      expect(newCB.buffer).to.deep.equal(solution);
+    })
+
+    it('should work with MANY pushes', () => {
+      for(let i = 0; i < 20; i++) {
+        newCB.push(i);
+      }
+      let solution = [16,17,18,19,12,13,14,15]
       expect(newCB.buffer).to.deep.equal(solution);
     })
   })
 
-  describe('pop', () => {
-    it('should remove items from the array in the correct sequence', () => {})
-    it('should', () => {})
-  })
+  // describe('pop', () => {
+  //   it('should return the last item added', () => {
+  //     newCB.push(1);
+  //     expect(newCB.pop()).to.equal(1);
+  //   })
 
-  describe('get', () => {
+  //   it('should', () => {})
+  // })
 
-  })
+  // describe('get', () => {
+
+  // })
 
   // describe('unshift', () => {
 

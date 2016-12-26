@@ -5,18 +5,20 @@ class CircularBuffer {
     this.head = this.tail = this.size = 0;
   }
 
-  push(element) {
+  push(data) {
     let nextIdx = this.head + 1; // next index we are adding into the array
 
-    if (nextIdx > this.capacity) nextIdx = 0; // loop around to beginning of array
+    if (nextIdx >= this.capacity) nextIdx = 0; // loop around to beginning of array
     if (this.size < this.capacity) this.size++; // increase the size if it's under capacity
 
-    this.buffer[nextIdx] = element; // put element in the array
+    this.buffer[this.head] = data; // put data in the array
     this.head = nextIdx; // set the pointer to the new index;
   }
 
-  pop(element) {
+  pop() {
+    let data = this.buffer[this.tail]; // the item to be removed
 
+    return data;
   }
 
   // shift(element) {
