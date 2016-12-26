@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
-const CircularBuffer = require('./circularBuffer');
+const CircularBuffer = require('./circularBufferStart');
 
-describe.only('CircularBuffer', () => {
+xdescribe('CircularBuffer', () => {
   let newCB;
   beforeEach(() => {
     newCB = new CircularBuffer(8);
