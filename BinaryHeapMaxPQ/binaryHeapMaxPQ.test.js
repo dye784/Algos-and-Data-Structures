@@ -1,7 +1,7 @@
 const expect = require('chai').expect
-const BinaryHeapMaxPQ = require('./binaryHeapMaxPQ')
+const BinaryHeapMaxPQ = require('./binaryHeapMaxPQStart')
 
-describe('Binary Heap Max Priority Queue', () => {
+xdescribe('Binary Heap Max Priority Queue', () => {
   let BHMPQ;
 
   beforeEach(() => {
