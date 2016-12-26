@@ -4,8 +4,6 @@ const LLredBlackBST = exportedModules.LLredBlackBST;
 const Node = exportedModules.Node;
 const RED = exportedModules.RED;
 const BLACK = exportedModules.BLACK;
-const sinon = require('sinon');
-require('chai').use(require('sinon-chai'))
 
 describe('RED and BLACK', () => {
   it('should just be equal to the strings RED and BLACK for easier debugging', () => {
@@ -41,7 +39,7 @@ describe('Node', () => {
   })
 })
 
-describe.only('Left Leaning Red Black Binary Search Tree', () => {
+describe('Left Leaning Red Black Binary Search Tree', () => {
 
   let LLRBBST;
   beforeEach(() => {
