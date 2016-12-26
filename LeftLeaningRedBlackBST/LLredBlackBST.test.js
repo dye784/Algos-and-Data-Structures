@@ -5,14 +5,14 @@ const Node = exportedModules.Node;
 const RED = exportedModules.RED;
 const BLACK = exportedModules.BLACK;
 
-describe('RED and BLACK', () => {
+xdescribe('RED and BLACK', () => {
   it('should just be equal to the strings RED and BLACK for easier debugging', () => {
     expect(RED).to.equal('RED');
     expect(BLACK).to.equal('BLACK');
   })
 })
 
-describe('Node', () => {
+xdescribe('Node', () => {
   let node;
   beforeEach(() => {
     node = new Node()
@@ -39,7 +39,7 @@ describe('Node', () => {
   })
 })
 
-describe('Left Leaning Red Black Binary Search Tree', () => {
+xdescribe('Left Leaning Red Black Binary Search Tree', () => {
 
   let LLRBBST;
   beforeEach(() => {
