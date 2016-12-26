@@ -5,6 +5,7 @@ class CircularBuffer {
     this.head = this.tail = this.size = 0;
   }
 
+  // add to array at head index;
   enqueue(data) {
     this.tail = (this.head + this.size) % this.capacity // adjust the tail
 
@@ -18,6 +19,7 @@ class CircularBuffer {
 
   }
 
+  // remove from array at tail index;
   dequeue() {
     if (this.size === 0) return undefined;
 
