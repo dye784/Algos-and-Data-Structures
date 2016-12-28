@@ -1,9 +1,9 @@
 
 class HashNode {
-  constructor(key, val) {
+  constructor(key, val, next = null) {
     this.value = val;
     this.key = key;
-    this.next = null;
+    this.next = next;
   }
 }
 
@@ -14,10 +14,9 @@ class HashTable {
   }
 
   set(key, val) {
-  //   if (typeof key !== 'string') throw new TypeError('Keys must be strings');
-  //   let hash = this.hash(key);
-  //   if (!this.buckets[hash]) this.buckets[hash] = new LinkedList();
-  //   this.buckets[hash].addToHead(new HashNode(key, val));
+    let hash = this.hash(key);
+    if (!this.buckets[hash]) this.buckets[hash] = new HashNode(key, val);
+    else this.buckets[hash] = new HashNode(key, val, this.buckets[hash])
   }
 
   get(key) {
@@ -30,13 +29,6 @@ class HashTable {
     }
 
     return null;
-    // return this.buckets[hash].search(node => node.key === key).value;
-  }
-
-  hasKey(key) {
-    let hash = this.hash(key);
-
-    return Boolean(this.buckets[hash].search(node => node.key === key));
   }
 
   hash(str) {

@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 const HashTable = require('./hashTables').HashTable;
 const HashNode = require('./hashTables').HashNode;
 
-describe.only('Hash Table', () => {
+xdescribe('Hash Table', () => {
   let HT;
   beforeEach(() => {
     HT = new HashTable()
@@ -33,11 +33,16 @@ describe.only('Hash Table', () => {
     })
 
     it('should get the correct value when separate chaining is not needed', () => {
-
+      const i = HT.hash('hello')
+      HT.buckets[i] = { key:'hello', value:'goodbye'}
+      expect(HT.get('hello')).to.equal('goodbye')
     })
 
-    it('should', () => {
-
+    it('should work with collisions', () => {
+      const i = HT.hash('foo')
+      HT.buckets[i] = { key: 'foo', value: 'bar'}
+      HT.buckets[i].next = { key: 'ofo', value: 'SOMETHING ELSE ENTIRELY'}
+      expect(HT.get('ofo')).to.equal('SOMETHING ELSE ENTIRELY')
     })
   })
 
@@ -46,26 +51,24 @@ describe.only('Hash Table', () => {
       expect(HT).to.have.property('set')
     })
 
-    it('should', () => {
-
+    it('should handle setting a value without collisions', () => {
+      HT.set('foo', 'bar')
+      expect(HT.buckets[9].key).to.equal('foo')
+      expect(HT.buckets[9].value).to.equal('bar')
+      expect(HT.buckets[9].next).to.be.null
     })
 
-    it('should', () => {
-
-    })
-  })
-
-  describe('hasKey', () => {
-    it('should have a function hasKey on its class', () => {
-      expect(HT).to.have.property('hasKey')
+    it('should handle collisions', () => {
+      HT.set('foo', 'bar1');
+      HT.set('ofo', 'bar2');
+      expect(HT.get('ofo')).to.equal('bar2');
+      expect(HT.get('foo')).to.equal('bar1');
     })
 
-    it('should', () => {
-
-    })
-
-    it('should', () => {
-
+    it('should overwrite if the keys are the same', () => {
+      HT.set('foo', 'bar1');
+      HT.set('foo', 'bar2');
+      expect(HT.get('foo')).to.equal('bar2');
     })
   })
 })
