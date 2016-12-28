@@ -1,7 +1,8 @@
 const expect = require('chai').expect;
-const HashTable = require('./hashTables');
+const HashTable = require('./hashTables').HashTable;
+const HashNode = require('./hashTables').HashNode;
 
-describe('Hash Table', () => {
+describe.only('Hash Table', () => {
   let HT;
   beforeEach(() => {
     HT = new HashTable()
@@ -14,12 +15,24 @@ describe('Hash Table', () => {
     });
   })
 
+  describe('hash', () => {
+    it('should have a function set on its class', () => {
+      expect(HT).to.have.property('hash')
+    })
+
+    it('should convert sum up the character code of each letter and modulo by the number of buckets', () => {
+      expect(HT.hash('foo')).to.equal(9);
+      expect(HT.hash('this is a key')).to.equal(27);
+      expect(HT.hash('what about this one')).to.equal(13);
+    })
+  })
+
   describe('get', () => {
     it('should have a function get on its class', () => {
       expect(HT).to.have.property('get')
     })
 
-    it('should', () => {
+    it('should get the correct value when separate chaining is not needed', () => {
 
     })
 
@@ -31,20 +44,6 @@ describe('Hash Table', () => {
   describe('set', () => {
     it('should have a function set on its class', () => {
       expect(HT).to.have.property('set')
-    })
-
-    it('should', () => {
-
-    })
-
-    it('should', () => {
-
-    })
-  })
-
-  describe('hash', () => {
-    it('should have a function set on its class', () => {
-      expect(HT).to.have.property('hash')
     })
 
     it('should', () => {
@@ -71,14 +70,27 @@ describe('Hash Table', () => {
   })
 })
 
-describe('Hash Node', () => {
-  describe('Constructor', () => {
-    it('should', () => {
+xdescribe('Hash Node', () => {
 
+  let hNode;
+  beforeEach(() => {
+    hNode = new HashNode('very special key', 'very special value')
+  })
+
+  describe('Constructor', () => {
+    it('should have properties key, value, and next', () => {
+      expect(hNode).to.have.ownProperty('key')
+      expect(hNode).to.have.ownProperty('value')
+      expect(hNode).to.have.ownProperty('next')
     })
 
-    it('should', () => {
+    it('should key and value set to input value', () => {
+      expect(hNode.key).to.equal('very special key')
+      expect(hNode.value).to.equal('very special value')
+    })
 
+    it('should next set to null', () => {
+      expect(hNode.next).to.be.null
     })
   })
 })
