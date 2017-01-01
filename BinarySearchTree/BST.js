@@ -21,7 +21,7 @@ class BinarySearchTree {
     else return false;
   }
 
-  // iterative approach to binary search
+  // iterative  binary search
   containsIterative(val) {
     let tree = this;
 
@@ -34,6 +34,7 @@ class BinarySearchTree {
     return false;
   }
 
+  // all in one implementation
   depthFirstForEach(fn, opt = 'in-order'){
     if (opt === 'pre-order') fn(this.value);
     if (this.left) this.left.depthFirstForEach(fn, opt);
@@ -42,7 +43,7 @@ class BinarySearchTree {
     if (opt === 'post-order') fn(this.value);
   }
 
-  // OR
+  // OR separate appraoches for each
 
   dfsPreOrder(fn) {
     if (this.value === null) return;
