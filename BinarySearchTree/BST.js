@@ -14,15 +14,15 @@ class BinarySearchTree {
   }
 
   // recursive binary search
-  // contains(val){
-  //   if (this.value === val) return true;
-  //   let direction = val < this.value ? 'left' : 'right';
-  //   if (this[direction]) return this[direction].contains(val);
-  //   else return false;
-  // }
+  containsRecursive(val){
+    if (this.value === val) return true;
+    let direction = val < this.value ? 'left' : 'right';
+    if (this[direction]) return this[direction].containsRecursive(val);
+    else return false;
+  }
 
   // iterative approach to binary search
-  contains(val) {
+  containsIterative(val) {
     let tree = this;
 
     while (tree !== null) {

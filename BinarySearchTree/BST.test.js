@@ -11,13 +11,42 @@ describe.only('Binary Search Tree', () => {
     testArr = [];
   });
 
-  describe('Contains', () => {
-    it('returns false if `contains` is passed a value not in the tree', function() {
+  describe('ContainsIterative', () => {
+    it('returns false if `contains` is passed a value not in the tree', () => {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
       [6, 23, 37, 51].forEach(function(value){
-        expect(tree.contains(value)).to.be.false;
+        expect(tree.containsIterative(value)).to.be.false;
+      });
+    });
+
+    it('returns true if `contains` is passed a value in the tree', () => {
+      valuesToInsert.forEach(function(value){
+          tree.insert(value);
+      });
+      valuesToInsert.forEach(function(value){
+          expect(tree.containsIterative(value)).to.be.true;
+      });
+    });
+  })
+
+  describe('ContainsRecursive', () => {
+    it('returns false if `contains` is passed a value not in the tree', () => {
+      valuesToInsert.forEach(function(value){
+          tree.insert(value);
+      });
+      [6, 23, 37, 51].forEach(function(value){
+        expect(tree.containsRecursive(value)).to.be.false;
+      });
+    });
+
+    it('returns true if `contains` is passed a value in the tree', () => {
+      valuesToInsert.forEach(function(value){
+          tree.insert(value);
+      });
+      valuesToInsert.forEach(function(value){
+          expect(tree.containsRecursive(value)).to.be.true;
       });
     });
   })
