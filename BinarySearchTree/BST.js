@@ -45,18 +45,18 @@ class BinarySearchTree {
 
   // OR separate appraoches for each
 
-  dfsPreOrder(fn) {
-    if (this.value === null) return;
-    fn(this.value)
-    if (this.left) this.left.dfsPreOrder(fn)
-    if (this.right) this.right.dfsPreOrder(fn)
-  }
-
   dfsInOrder(fn) {
     if (this.value === null) return;
     if (this.left) this.left.dfsInOrder(fn)
     fn(this.value)
     if (this.right) this.right.dfsInOrder(fn)
+  }
+
+  dfsPreOrder(fn) {
+    if (this.value === null) return;
+    fn(this.value)
+    if (this.left) this.left.dfsPreOrder(fn)
+    if (this.right) this.right.dfsPreOrder(fn)
   }
 
   dfsPostOrder(fn) {

@@ -12,7 +12,7 @@ describe.only('Binary Search Tree', () => {
   });
 
   describe('ContainsIterative', () => {
-    it('returns false if `contains` is passed a value not in the tree', () => {
+    it('returns false if `containsIterative` is passed a value not in the tree', () => {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -21,7 +21,7 @@ describe.only('Binary Search Tree', () => {
       });
     });
 
-    it('returns true if `contains` is passed a value in the tree', () => {
+    it('returns true if `containsIterative` is passed a value in the tree', () => {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -32,7 +32,7 @@ describe.only('Binary Search Tree', () => {
   })
 
   describe('ContainsRecursive', () => {
-    it('returns false if `contains` is passed a value not in the tree', () => {
+    it('returns false if `containsRecursive` is passed a value not in the tree', () => {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -41,7 +41,7 @@ describe.only('Binary Search Tree', () => {
       });
     });
 
-    it('returns true if `contains` is passed a value in the tree', () => {
+    it('returns true if `containsRecursive` is passed a value in the tree', () => {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -53,7 +53,7 @@ describe.only('Binary Search Tree', () => {
 
   // obvious advantage: values are processed respecting their comparative order
   describe('dfsInOrder', () => {
-    it('does what is supposed to', function() {
+    it('runs depth-first with in-order traversal', function() {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -67,7 +67,7 @@ describe.only('Binary Search Tree', () => {
 
   // one use case: copying a tree (processes roots first)
   describe('dfsPreOrder', () => {
-    it('runs depth-first (in "pre-order" traversal) when depthFirstForEach() is run with "pre-order" option', function() {
+    it('runs depth-first with pre-order traversal', function() {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -78,7 +78,7 @@ describe.only('Binary Search Tree', () => {
 
   // one use case: deleting a tree (processes leaves first)
   describe('dfsPostOrder', () => {
-    it('runs depth-first (in "post-order" traversal) when depthFirstForEach() is run with "post-order" option', function() {
+    it('runs depth-first with post-order traversal', function() {
       valuesToInsert.forEach(function(value){
           tree.insert(value);
       });
@@ -86,5 +86,4 @@ describe.only('Binary Search Tree', () => {
       expect(testArr).to.deep.equal([ 1, 0, 11, 12, 13, 14, 5, 17, 15, 21, 31, 34, 33, 35, 30, 45, 50, 28, 25, 20 ]);
     });
   })
-
 })
