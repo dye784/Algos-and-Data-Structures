@@ -13,11 +13,25 @@ class BinarySearchTree {
     this.magnitude++;
   }
 
-  contains(val){
-    if (this.value === val) return true;
-    let direction = val < this.value ? 'left' : 'right';
-    if (this[direction]) return this[direction].contains(val);
-    else return false;
+  // recursive binary search
+  // contains(val){
+  //   if (this.value === val) return true;
+  //   let direction = val < this.value ? 'left' : 'right';
+  //   if (this[direction]) return this[direction].contains(val);
+  //   else return false;
+  // }
+
+  // iterative approach to binary search
+  contains(val) {
+    let tree = this;
+
+    while (tree !== null) {
+      if (val < tree.value) tree = tree.left
+      else if (val > tree.value) tree = tree.right
+      else return true
+    }
+
+    return false;
   }
 
   depthFirstForEach(fn, opt = 'in-order'){
@@ -27,6 +41,30 @@ class BinarySearchTree {
     if (this.right) this.right.depthFirstForEach(fn, opt);
     if (opt === 'post-order') fn(this.value);
   }
+
+  // OR
+
+  dfsPreOrder(fn) {
+    if (this.value === null) return;
+    fn(this.value)
+    if (this.left) this.left.dfsPreOrder(fn)
+    if (this.right) this.right.dfsPreOrder(fn)
+  }
+
+  dfsInOrder(fn) {
+    if (this.value === null) return;
+    if (this.left) this.left.dfsInOrder(fn)
+    fn(this.value)
+    if (this.right) this.right.dfsInOrder(fn)
+  }
+
+  dfsPostOrder(fn) {
+    if (this.value === null) return;
+    if (this.left) this.left.dfsPostOrder(fn)
+    if (this.right) this.right.dfsPostOrder(fn)
+    fn(this.value)
+  }
+
   breadthFirstForEach(fn){
     let queue = [this];
     while (queue.length) {
@@ -36,6 +74,7 @@ class BinarySearchTree {
       fn(current.value);
     }
   }
+
   size(){
     return this.magnitude;
   }
