@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const ALgraph = require('./adjacencyListGraph');
-const DFS = require('depthFirstSearch');
+const DFS = require('./depthFirstSearch');
 
 
 // let dfs = new DepthFirstSearch(x);

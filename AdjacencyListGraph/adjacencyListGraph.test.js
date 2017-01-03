@@ -2,36 +2,74 @@ const expect = require('chai').expect;
 const Graph = require('./adjacencyListGraph');
 
 xdescribe('Graph', () => {
-  it('should generate the proper graph', () => {
-    let g = new Graph(12);
 
-    g.addEdge(0, 6)
-    g.addEdge(0, 2)
-    g.addEdge(0, 1)
-    g.addEdge(0, 5)
-    g.addEdge(1, 0)
-    g.addEdge(2, 0)
-    g.addEdge(3, 5)
-    g.addEdge(3, 4)
-    g.addEdge(4, 5)
-    g.addEdge(4, 6)
-    g.addEdge(4, 3)
-    g.addEdge(5, 3)
-    g.addEdge(5, 4)
-    g.addEdge(5, 0)
-    g.addEdge(6, 0)
-    g.addEdge(6, 4)
-    g.addEdge(7, 8)
-    g.addEdge(8, 7)
-    g.addEdge(9, 11)
-    g.addEdge(9, 10)
-    g.addEdge(9, 12)
-    g.addEdge(10, 9)
-    g.addEdge(11, 9)
-    g.addEdge(11, 12)
-    g.addEdge(12, 11)
-    g.addEdge(12, 9)
-    expect(g).to.equal(2)
+  let graph;
+  beforeEach(() => {
+    graph = new Graph()
+  })
+
+  describe('Constructor', () => {
+    it('should have properties numVerties, numEdges, verticies', () => {
+      expect(graph).to.have.ownPropert('numVerties')
+      expect(graph).to.have.ownPropert('numEdges')
+      expect(graph).to.have.ownPropert('vertices')
+    })
+  })
+
+  describe('verticiesInit', () => {
+    it('should', () => {})
+  })
+
+  describe('addEdge', () => {
+    it('should', () => {})
+  })
+
+  describe('adjacentVertices', () => {
+    it('should', () => {})
+  })
+
+  describe('degree', () => {
+    it('should', () => {})
+  })
+
+  describe('maxDegree', () => {
+    it('should', () => {})
+  })
+
+  describe('averageDegree', () => {
+    it('should', () => {})
+  })
+})
+
+ // let g = new Graph(12);
+
+    // g.addEdge(0, 6)
+    // g.addEdge(0, 2)
+    // g.addEdge(0, 1)
+    // g.addEdge(0, 5)
+    // g.addEdge(1, 0)
+    // g.addEdge(2, 0)
+    // g.addEdge(3, 5)
+    // g.addEdge(3, 4)
+    // g.addEdge(4, 5)
+    // g.addEdge(4, 6)
+    // g.addEdge(4, 3)
+    // g.addEdge(5, 3)
+    // g.addEdge(5, 4)
+    // g.addEdge(5, 0)
+    // g.addEdge(6, 0)
+    // g.addEdge(6, 4)
+    // g.addEdge(7, 8)
+    // g.addEdge(8, 7)
+    // g.addEdge(9, 11)
+    // g.addEdge(9, 10)
+    // g.addEdge(9, 12)
+    // g.addEdge(10, 9)
+    // g.addEdge(11, 9)
+    // g.addEdge(11, 12)
+    // g.addEdge(12, 11)
+    // g.addEdge(12, 9)
+
 
 
  // *  0: 6 2 1 5
@@ -83,7 +121,3 @@ xdescribe('Graph', () => {
 // // console.log(x.vertices);
 // // console.log(x.maxDegree());
 // // console.log(x.averageDegree());
-
-
-  })
-})
