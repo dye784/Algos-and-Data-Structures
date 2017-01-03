@@ -1,22 +1,39 @@
 
 class Graph {
   constructor(v, e) {
-    this.numVertices = v;
-    this.numEdges = e;
-    this.bag = Array(v);
+    this.numVertices = v || 0;
+    this.numEdges = e || 0;
+    this.verticies = Array(v);
+    this.verticiesInit();
+  }
+
+  verticiesInit() {
     for (var i = 0; i < v; i++) {
-      this.bag[i] = []
+      this.verticies[i] = []
     }
   }
 
   addEdge(vertex1, vertex2) {
-    this.bag[vertex1].push(vertex2);
-    this.bag[vertex2].push(vertex1);
+    this.verticies[vertex1].push(vertex2);
+    this.verticies[vertex2].push(vertex1);
+    this.numEdges++;
   }
 
   adjacentVertices(v) {
-    console.log("this.bag[v]", this.bag[v])
-    return this.bag[v]
+    return this.verticies[v]
+  }
+
+  degree(v) {
+    return this.vertices[v].length;
+  }
+
+  maxDegree() {
+    return Math.max(...this.verticies.map((arr, index) => this.degree(index)));
+  }
+
+  averageDegree() {
+    const degrees = this.verticies.map((arr, index) => this.degree(index));
+    return degrees.reduce((a, b) => a + b) / degrees.length;
   }
 }
 
@@ -24,18 +41,26 @@ class Graph {
 
 class DepthFirstSearch {
   constructor(graph, start) {
-    debugger;
     this.marked = Array(graph.numVertices);
-    // this.start = start;
-    this.search(graph, start);
+    this.edgeTo = Array(graph.numEdges);
+    this.markedInit();
+    this.componentId = 0;
+  }
+
+  markedInit() {
+    for (var i = 0; i < this.marked.length; i++) {
+      this.marked[i] = false
+    }
   }
 
   search(graph, vertex) {
     this.marked[vertex] = true;
+    this.components[vertex] = this.componentId;
     for (let w in graph.adjacentVertices(vertex)) {
       if (!this.marked[w]) {
         this.search(graph, w);
       }
+      this.edgeTo[w] = vertex;
     }
   }
 
@@ -43,18 +68,32 @@ class DepthFirstSearch {
     return this.marked[vertex]
   }
 
-  pathTo(vertex) {
+  path(v, w) {
     if (!this.hasPathTo(vertex)) return null;
 
-    const path = [];
-    for (let i = vertex; i !== this.start; i = this.edgeTo[i]) {
-      path.push(i)
+    let directions = w.toString();
+
+    while (this.edgeTo[w] !== v) {
+      directions += ' --> ' + this.edgeTo[w].toString()
+      w = this.edgeTo[w]
     }
 
-    path.push(this.start)
-    return path
+    directions += ' --> ' + v.toString();
+
+    return directions;
   }
+
+  connectedComponents(graph) {
+    for (let i = 0; i < graph.verticies.length; i++) {
+      if (!this.marked[i]) {
+        this.search(graph, i);
+        this.componentId++;
+      }
+    }
+  }
+
 }
+
 
 let g2 = new Graph(13,13)
 
@@ -93,19 +132,60 @@ console.log(dfs.marked)
 // console.log(dfs.pathTo('5'))
 // console.log(dfs.edgeTo)
 
+let x = new Graph(9);
+// console.log(x.vertices);
+x.addEdge(1, 2);
+x.addEdge(1, 0);
+x.addEdge(2, 3);
+x.addEdge(3, 4);
+x.addEdge(5, 6);
+x.addEdge(7, 8);
+// console.log(x.vertices);
+// console.log(x.maxDegree());
+// console.log(x.averageDegree());
 
 
-// public static void main(String[] args) {
-//         In in = new In(args[0]);
-//         Graph G = new Graph(in);
-//         int s = Integer.parseInt(args[1]);
-//         DepthFirstSearch search = new DepthFirstSearch(G, s);
-//         for (int v = 0; v < G.V(); v++) {
-//             if (search.marked(v))
-//                 StdOut.print(v + " ");
-//         }
 
-//         StdOut.println();
-//         if (search.count() != G.V()) StdOut.println("NOT connected");
-//         else                         StdOut.println("connected");
+
+// let dfs = new DepthFirstPaths(5);
+// dfs.connectedComponents(x);
+// console.log(dfs.marked);
+// console.log(dfs.edgeTo);
+// console.log(dfs.components);
+// // console.log(dfs.path(0, 4));
+
+// class BreadthFirstPaths {
+//   constructor(vertices) {
+//     this.marked = Array(vertices);
+//     this.edgeTo = Array(vertices);
+//     this.markedInit();
+//   }
+
+//   markedInit() {
+//     for (let i = 0; i < this.marked.length; i++) {
+//       this.marked[i] = false;
 //     }
+//   }
+
+//   breadthFirstSearch(graph, source) {
+//     let queue = [source];
+//     this.marked[source] = true;
+
+//     while (queue.length) {
+//       let v = queue.shift();
+//       let adjacent = graph.adjacent(v);
+//       adjacent.forEach(w => {
+//         if (!this.marked[w]) {
+//           queue.push(w);
+//           this.marked[w] = true;
+//           this.edgeTo[w] = v;
+//         }
+//       });
+//     }
+//   }
+// }
+
+// let bfs = new BreadthFirstPaths();
+// bfs.breadthFirstSearch(x, 0);
+// // console.log(bfs.marked);
+// // console.log(bfs.edgeTo);
