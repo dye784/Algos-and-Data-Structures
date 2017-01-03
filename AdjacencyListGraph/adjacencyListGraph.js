@@ -15,6 +15,7 @@ class Graph {
   }
 
   // add edges to each corresponding vertex
+  // make sure to add the connection to both vetices
   addEdge(vertex1, vertex2) {
     this.vertices[vertex1].push(vertex2);
     this.vertices[vertex2].push(vertex1);
