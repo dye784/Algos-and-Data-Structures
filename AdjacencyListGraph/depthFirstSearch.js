@@ -1,4 +1,4 @@
-class DepthFirstSearch {
+ class DepthFirstSearch {
   constructor(graph) {
     this.marked = Array(graph.numVertices);
     this.edgeTo = Array(graph.numEdges);

@@ -1,19 +1,35 @@
 const expect = require('chai').expect;
 const Graph = require('./adjacencyListGraph');
 
-xdescribe('Graph', () => {
+describe.only('Graph', () => {
 
   let graph;
   beforeEach(() => {
-    graph = new Graph()
+    graph = new Graph(5,5)
   })
 
   describe('Constructor', () => {
-    it('should have properties numVerties, numEdges, verticies', () => {
-      expect(graph).to.have.ownPropert('numVerties')
-      expect(graph).to.have.ownPropert('numEdges')
-      expect(graph).to.have.ownPropert('vertices')
+    it('should have properties numVertices, numEdges, verticies', () => {
+      expect(graph).to.have.ownProperty('numVertices')
+      expect(graph).to.have.ownProperty('numEdges')
+      expect(graph).to.have.ownProperty('vertices')
     })
+
+    it('should have numVertices set to the input', () => {
+      expect(graph.numVertices).to.equal(5)
+    })
+
+    it('should have numEdges set to the input', () => {
+      expect(graph.numEdges).to.equal(5)
+    })
+
+    // it('should have vertices be an array of length numVertices', () => {
+    //   expect(graph.vertices).to.deep.equal(Array(5))
+    // })
+
+    // it('should call vertiiesInit function', () => {
+    //   expect(graph.numEdges).to.equal()
+    // })
   })
 
   describe('verticiesInit', () => {
