@@ -1,7 +1,7 @@
 class Node {
-  constructor(key, value) {
+  constructor(key, val) {
     this.key = key;
-    this.value = value;
+    this.val = val;
     this.next = {};
     this.prefixes = 0;
   }
@@ -12,7 +12,7 @@ class TrieST {
     this.root = null
   }
 
-  put(node, key, val, int) {
+  put(node, key, val) {
     if (!val) this.delete(key);
     else this.root = this._put(this.root, key, val, 0)
   }
@@ -33,7 +33,7 @@ class TrieST {
   get(key) {
     let node = this._get(this.root, key, 0);
     if (!node) return null;
-    return
+    return node.val;
   }
 
   _get(node, key, int) {
@@ -54,12 +54,17 @@ class TrieST {
       node.val = null;
     } else {
       const char = key.chatAt(int);
-      node.next[char] = delete(node.next[char], key, int + 1)
+      node.next[char] = this._delete(node.next[char], key, int + 1)
     }
 
+    // removes subtrie if it is completely empty
     if (node.val !== null) return node;
-    // for (let letter in node.next) {
-    //   if ()
-    // }
+    for (let letter in node.next) {
+      if (node.next[letter]) return node;
+    }
+
+    return null
   }
 }
+
+module.exports = { Node, TrieST }
