@@ -17,7 +17,6 @@ class TrieST {
   }
 
   _put(node, key, val, int) {
-    debugger;
     if (node !== null) node = new Node();
     if (int === key.length) {
       if (node.val !== null) this.numKeys++;
@@ -53,7 +52,7 @@ class TrieST {
       if (node.val !== null) this.numKeys--;
       node.val = null;
     } else {
-      const char = key.chatAt(int);
+      const char = key.charAt(int);
       node.next[char] = this._delete(node.next[char], key, int + 1)
     }
 
@@ -67,9 +66,11 @@ class TrieST {
   }
 }
 
-// module.exports = { Node, TrieST }
+module.exports = { Node, TrieST }
 
 let TST = new TrieST()
 TST.put('a', 1)
 TST.put('ab', 2)
+console.log(TST.root)
+TST.delete('a')
 console.log(TST.root)
