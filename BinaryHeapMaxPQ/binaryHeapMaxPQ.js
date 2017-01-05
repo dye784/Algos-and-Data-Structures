@@ -17,7 +17,7 @@ class BinaryHeapMaxPQ {
     // while idx > 1 because we don't use the 0th index
     // and array[idx/2] < array[idx]
 
-    while(idx > 1 && this.isLess(Math.floor(idx / 2), idx)) {
+    while (idx > 1 && this.isLess(Math.floor(idx / 2), idx)) {
 
       // swap them
       this.exchange(idx, Math.floor(idx / 2))
@@ -32,17 +32,17 @@ class BinaryHeapMaxPQ {
   sink(idx1) {
 
     // while the index is still inside the array
-    while(2 * idx1 <= this.size) {
+    while (2 * idx1 <= this.size) {
 
       // the next index is double
       let idx2 = 2 * idx1
 
       // if the next index is not the last element and idx2 + 1 is larger, we increment
       // so we can swap with the
-      if(idx2 < this.size && this.isLess(idx2, idx2 + 1)) idx2++;
+      if (idx2 < this.size && this.isLess(idx2, idx2 + 1)) idx2++;
 
       // if idx1 element is not less than idx2 element break
-      if(!this.isLess(idx1, idx2)) break;
+      if (!this.isLess(idx1, idx2)) break;
 
       // swap this element with the element at idx2
       // now we should be at the index double from before
