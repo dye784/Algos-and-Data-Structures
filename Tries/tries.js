@@ -1,43 +1,43 @@
 class Node {
-  constructor(key, val) {
-    this.key = key;
+  constructor(val) {
     this.val = val;
     this.next = {};
-    this.prefixes = 0;
   }
 }
 
 class TrieST {
   constructor() {
-    this.root = null
+    this.root = null;
+    this.numKeys = 0;
   }
 
-  put(node, key, val) {
-    if (!val) this.delete(key);
+  put(key, val) {
+    if (val !== undefined) this.delete(key);
     else this.root = this._put(this.root, key, val, 0)
   }
 
   _put(node, key, val, int) {
-    if (!node) node = new Node();
+    debugger;
+    if (node !== null) node = new Node();
     if (int === key.length) {
-      if (!node.val) this.prefixes++;
+      if (node.val !== null) this.numKeys++;
       node.val = val;
       return node;
     }
 
-    const char = key.chatAt(int);
+    const char = key.charAt(int);
     node.next[char] = this._put(node.next[char], key, val, int + 1);
     return node;
   }
 
   get(key) {
     let node = this._get(this.root, key, 0);
-    if (!node) return null;
+    if (node !== null) return null;
     return node.val;
   }
 
   _get(node, key, int) {
-    if (!node) return null;
+    if (node !== null) return null;
     if (int === key.length) return node;
     const char = key.charAt(int);
     return this._get(node.next[char], key, int + 1);
@@ -48,9 +48,9 @@ class TrieST {
   }
 
   _delete(node, key, int) {
-    if (!node) return null;
+    if (node !== null) return null;
     if (int === key.length) {
-      if (node.val !== null) this.prefixes--;
+      if (node.val !== null) this.numKeys--;
       node.val = null;
     } else {
       const char = key.chatAt(int);
@@ -67,4 +67,9 @@ class TrieST {
   }
 }
 
-module.exports = { Node, TrieST }
+// module.exports = { Node, TrieST }
+
+let TST = new TrieST()
+TST.put('a', 1)
+TST.put('ab', 2)
+console.log(TST.root)
