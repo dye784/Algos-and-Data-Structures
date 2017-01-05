@@ -12,12 +12,12 @@ class TrieST {
   }
 
   put(key, val) {
-    if (val !== undefined) this.delete(key);
+    if (val === undefined) this.delete(key);
     else this.root = this._put(this.root, key, val, 0)
   }
 
   _put(node, key, val, int) {
-    if (node !== null) node = new Node();
+    if (node === null) node = new Node();
     if (int === key.length) {
       if (node.val !== null) this.numKeys++;
       node.val = val;
@@ -31,12 +31,12 @@ class TrieST {
 
   get(key) {
     let node = this._get(this.root, key, 0);
-    if (node !== null) return null;
+    if (node === null) return null;
     return node.val;
   }
 
   _get(node, key, int) {
-    if (node !== null) return null;
+    if (node === null) return null;
     if (int === key.length) return node;
     const char = key.charAt(int);
     return this._get(node.next[char], key, int + 1);
@@ -47,7 +47,7 @@ class TrieST {
   }
 
   _delete(node, key, int) {
-    if (node !== null) return null;
+    if (node === null) return null;
     if (int === key.length) {
       if (node.val !== null) this.numKeys--;
       node.val = null;
@@ -66,7 +66,7 @@ class TrieST {
   }
 }
 
-module.exports = { Node, TrieST }
+// module.exports = { Node, TrieST }
 
 let TST = new TrieST()
 TST.put('a', 1)
