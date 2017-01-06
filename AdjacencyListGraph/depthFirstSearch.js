@@ -37,7 +37,6 @@ class DepthFirstSearch {
     let directions = w.toString();
 
     while (this.edgeTo[w] !== v) {
-      // console.log('THIS.EDGETO W', this.edgeTo[w])
       directions += ' --> ' + this.edgeTo[w].toString()
       w = this.edgeTo[w]
     }
@@ -75,6 +74,7 @@ console.log(search)
 console.log(search.marked);
 console.log(search.edgeTo);
 console.log(search.components);
-console.log(search.path(0, 4));
+console.log(search.path(7, 8));
+console.log()
 
 module.exports = DepthFirstSearch;
