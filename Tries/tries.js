@@ -57,7 +57,7 @@ class TrieST {
     }
 
     // removes subtrie if it is completely empty
-    if (node.val !== undefined) return node;
+    if (node.val !== null) return node;
     for (let letter in node.next) {
       if (node.next[letter]) return node;
     }
@@ -72,5 +72,5 @@ let TST = new TrieST()
 TST.put('a', 1)
 TST.put('ab', 2)
 console.log(TST.root)
-TST.delete('a')
+TST.delete('ab')
 console.log(TST.root)
