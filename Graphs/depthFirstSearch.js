@@ -1,4 +1,3 @@
-const Graph = require('./adjacencyListGraph');
 
 class DepthFirstSearch {
   constructor(graph) {

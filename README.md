@@ -21,4 +21,7 @@
   * All sorting algos
   * KnuthShuffle
   * Heap Sort Readme
+  * Graphs
+    * bfs
+    * dfs
 2. Maybe write better README's for sorting algos

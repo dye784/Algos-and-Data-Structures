@@ -1,7 +1,7 @@
 class BreadthFirstSearch {
   constructor(graph) {
     this.marked = Array(graph.numVertices);
-    this.edgeTo = Array(graph.numEdges);
+    this.edgeTo = Array(graph.numVertices);
     this.markedInit();
   }
 
@@ -31,3 +31,21 @@ class BreadthFirstSearch {
 }
 
 module.exports = BreadthFirstSearch;
+
+const ALgraph = require('./adjacencyListGraph');
+
+let y = new ALgraph(6, 8);
+y.addEdge(0,1);
+y.addEdge(0,2);
+y.addEdge(0,5);
+y.addEdge(1,2);
+y.addEdge(2,4);
+y.addEdge(2,3);
+y.addEdge(3,4);
+y.addEdge(3,5);
+
+let search = new BreadthFirstSearch(y);
+console.log(y)
+search.bfs(y, 0);
+console.log(search.marked);
+console.log(search.edgeTo);
