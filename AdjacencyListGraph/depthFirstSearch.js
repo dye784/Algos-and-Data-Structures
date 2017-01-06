@@ -1,11 +1,12 @@
- class DepthFirstSearch {
+const Graph = require('./adjacencyListGraph');
+
+class DepthFirstSearch {
   constructor(graph) {
     this.marked = Array(graph.numVertices);
-    this.edgeTo = Array(graph.numEdges);
+    this.edgeTo = Array(graph.numVertices);
     this.markedInit();
     this.components = Array(graph.numVertices);
     this.componentId = 0;
-    this.graph = graph;
   }
 
   markedInit() {
@@ -14,15 +15,17 @@
     }
   }
 
-  search(vertex) {
+  dfs(graph, vertex) {
     this.marked[vertex] = true;
     this.components[vertex] = this.componentId;
-    for (let w in this.graph.adjacentVertices(vertex)) {
+    const adjacent = graph.adjacentVertices(vertex);
+    adjacent.forEach(w => {
+      console.log(w)
       if (!this.marked[w]) {
-        this.search(w);
+        this.dfs(graph, w);
       }
       this.edgeTo[w] = vertex;
-    }
+    })
   }
 
   hasPathTo(vertex) {
@@ -35,7 +38,7 @@
     let directions = w.toString();
 
     while (this.edgeTo[w] !== v) {
-      console.log(this.edgeTo)
+      // console.log('THIS.EDGETO W', this.edgeTo[w])
       directions += ' --> ' + this.edgeTo[w].toString()
       w = this.edgeTo[w]
     }
@@ -45,15 +48,34 @@
     return directions;
   }
 
-  connectedComponents() {
-    for (let i = 0; i < this.graph.vertices.length; i++) {
+  connectedComponents(graph) {
+    for (let i = 0; i < graph.numVertices; i++) {
       if (!this.marked[i]) {
-        this.search(i);
+        this.dfs(graph, i);
         this.componentId++;
       }
     }
   }
 
 }
+
+let x = new Graph(9, 6);
+// console.log(x.vertices);
+x.addEdge(1, 2);
+x.addEdge(1, 0);
+x.addEdge(2, 3);
+x.addEdge(3, 4);
+x.addEdge(5, 6);
+x.addEdge(7, 8);
+// console.log(x)
+
+let search = new DepthFirstSearch(x);
+// console.log('CLASS', search)
+search.connectedComponents(x);
+console.log(search)
+console.log(search.marked);
+console.log(search.edgeTo);
+console.log(search.components);
+console.log(search.path(0, 4));
 
 module.exports = DepthFirstSearch;
