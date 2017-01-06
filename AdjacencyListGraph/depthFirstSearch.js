@@ -20,7 +20,6 @@ class DepthFirstSearch {
     this.components[vertex] = this.componentId;
     const adjacent = graph.adjacentVertices(vertex);
     adjacent.forEach(w => {
-      console.log(w)
       if (!this.marked[w]) {
         this.dfs(graph, w);
       }
