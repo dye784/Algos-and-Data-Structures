@@ -17,9 +17,9 @@ class TrieST {
   }
 
   _put(node, key, val, int) {
-    if (node === null) node = new Node();
+    if (!node) node = new Node();
     if (int === key.length) {
-      if (node.val !== null) this.numKeys++;
+      if (node.val === undefined) this.numKeys++;
       node.val = val;
       return node;
     }
@@ -31,12 +31,12 @@ class TrieST {
 
   get(key) {
     let node = this._get(this.root, key, 0);
-    if (node === null) return null;
+    if (!node) return null;
     return node.val;
   }
 
   _get(node, key, int) {
-    if (node === null) return null;
+    if (!node) return null;
     if (int === key.length) return node;
     const char = key.charAt(int);
     return this._get(node.next[char], key, int + 1);
@@ -47,9 +47,9 @@ class TrieST {
   }
 
   _delete(node, key, int) {
-    if (node === null) return null;
+    if (!node) return null;
     if (int === key.length) {
-      if (node.val !== null) this.numKeys--;
+      if (node.val !== undefined) this.numKeys--;
       node.val = null;
     } else {
       const char = key.charAt(int);
@@ -57,7 +57,7 @@ class TrieST {
     }
 
     // removes subtrie if it is completely empty
-    if (node.val !== null) return node;
+    if (node.val !== undefined) return node;
     for (let letter in node.next) {
       if (node.next[letter]) return node;
     }
