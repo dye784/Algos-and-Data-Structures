@@ -10,13 +10,19 @@
 4. ???
 5. Profit
 
-### Source
-  Each folder contains the solution, an empty file, and a file for the test specs
+## Description
+Each folder contains the solution, an empty file, and a file for the test specs. Most files also include a README describing the data structure or algo as well as the functions you need to implement.
 
+Most of these implementations are what I have learned from the Coursera Princton Introduction to Algos Course, Part 1 and 2, and at Fullstack Academy. Although the Coursera course is in Java, I've implemented it in JavaScript.
 
-### Most of these implementations are what I have learned from the Coursera Princton Introduction to Algos Part 1 Course
+I have written extensive test specs so others can use this repo to do test first learning. And also to check if the functions I wrote were actually doing what they were supposed to :joy:.
 
-### TODO:
+### Note:
+
+A couple of the algorithms and data structures do not yet have test specs. Also the README's could be better. Will get on that...eventually...
+
+Said Stuff:
+
 1. Test Specs
   * All sorting algos
   * KnuthShuffle
@@ -24,4 +30,4 @@
   * Graphs
     * bfs
     * dfs
-2. Maybe write better README's for sorting algos
+2. Write better README's for sorting algos
