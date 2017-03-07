@@ -18,6 +18,7 @@ const shellSort = (array) => {
       for (let j = i; j >= h; j -= h) {
         if(array[j] < array[j - h]) {
           swap(array, j, j - h)
+          console.log(array)
         }
       }
 
