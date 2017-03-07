@@ -89,8 +89,7 @@ xdescribe('CircularBuffer', () => {
       for(let i = 0; i < 20; i++) {
         newCB.enqueue(i);
       }
-      console.log(newCB.tail)
-      let solution = [16,17,18,19,12,13,14,15]
+      const solution = [16,17,18,19,12,13,14,15]
       expect(newCB.buffer).to.deep.equal(solution);
     })
   })

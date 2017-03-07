@@ -37,4 +37,4 @@ const swap = (array, idx1, idx2) => {
   array[idx2] = temp;
 }
 
-module.exports = shellSort;
+module.exports = {shellSort, swap};

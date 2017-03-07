@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Graph = require('./adjacencyListGraph');
 
-describe.only('Graph', () => {
+xdescribe('Graph', () => {
 
   let graph;
   beforeEach(() => {

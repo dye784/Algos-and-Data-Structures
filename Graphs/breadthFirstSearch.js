@@ -21,7 +21,7 @@ class BreadthFirstSearch {
       adjacent.forEach(w => {
         if (!this.marked[w]) {
           queue.push(w);
-          console.log(queue)
+          // console.log(queue)
           this.marked[w] = true;
           this.edgeTo[w] = v;
         }
@@ -32,20 +32,20 @@ class BreadthFirstSearch {
 
 module.exports = BreadthFirstSearch;
 
-const ALgraph = require('./adjacencyListGraph');
+// const ALgraph = require('./adjacencyListGraph');
 
-let y = new ALgraph(6, 8);
-y.addEdge(0,1);
-y.addEdge(0,2);
-y.addEdge(0,5);
-y.addEdge(1,2);
-y.addEdge(2,4);
-y.addEdge(2,3);
-y.addEdge(3,4);
-y.addEdge(3,5);
+// let y = new ALgraph(6, 8);
+// y.addEdge(0,1);
+// y.addEdge(0,2);
+// y.addEdge(0,5);
+// y.addEdge(1,2);
+// y.addEdge(2,4);
+// y.addEdge(2,3);
+// y.addEdge(3,4);
+// y.addEdge(3,5);
 
-let search = new BreadthFirstSearch(y);
-console.log(y)
-search.bfs(y, 0);
-console.log(search.marked);
-console.log(search.edgeTo);
+// let search = new BreadthFirstSearch(y);
+// console.log(y)
+// search.bfs(y, 0);
+// console.log(search.marked);
+// console.log(search.edgeTo);
