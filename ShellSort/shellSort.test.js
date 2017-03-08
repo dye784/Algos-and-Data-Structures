@@ -6,7 +6,7 @@ chai.use(spies);
 const shellSort = require('./shellSort').shellSort;
 const swap = require('./shellSort').swap;
 
-describe.only('Shell Sort', () => {
+xdescribe('Shell Sort', () => {
   let testArr;
   beforeEach(() => {
     testArr = [5,4,6,8,2,4,6];
