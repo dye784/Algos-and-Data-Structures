@@ -17,5 +17,5 @@ subsequencesOne = 'a', 'b', 'c', 'ab', 'ac', 'bc'
 LCS('abc', 'axyzc') = 'ac'
 
 ### Note:
-Implement LCS using dynamic programming
+Implement LCS using dynamic programming techniques. In this case use specifically memoization.
 
