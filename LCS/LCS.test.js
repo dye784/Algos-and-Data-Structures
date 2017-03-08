@@ -1,10 +1,15 @@
-const { excpect } = require('chai');
-const { LCS, subproblem } = require('./LCS');
+const { expect } = require('chai');
+const { LCS_length, subproblem } = require('./LCS');
 
 describe.only('Longest Common Subsequence (dynamic programming)', () => {
+
+
   it('should use two functions', () => {
-    expect(LCS).to.exist;
+    expect(LCS_length).to.exist;
     expect(subproblem).to.exist
   })
-  it('should', () => {})
+
+  it('should work', () => {
+    expect(LCS_length('abc', 'ac')).to.equal('ac')
+  })
 })
