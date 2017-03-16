@@ -5,6 +5,7 @@
   "main": "quick-find.js",
   "dependencies": {
     "chai": "^3.5.0",
+    "chai-properties": "^1.2.1",
     "chai-spies": "^0.7.1",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0"
@@ -13,7 +14,7 @@
     "mocha": "^3.2.0"
   },
   "scripts": {
-    "test": "mocha -w ./**/*.test.js"
+    "test": "mocha **/*.test.js -w"
   },
   "keywords": [],
   "author": "Damon Ye",
