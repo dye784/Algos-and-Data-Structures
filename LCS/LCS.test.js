@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { LCS_length, subproblem } = require('./LCS');
 
-describe.only('Longest Common Subsequence (dynamic programming)', () => {
+xdescribe('Longest Common Subsequence (dynamic programming)', () => {
 
 
   it('should use two functions', () => {
