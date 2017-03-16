@@ -31,3 +31,11 @@ Said Stuff:
     * bfs
     * dfs
 2. Write better README's for sorting algos
+
+### Coming Soon:
+
+1. Suffix Tree
+2. Topological Sort (using Tarjan's algorithm)
+3. Dijkstra's Algorithm
+4. Longest Common Subsequence (using dynamic programming)
+5. Knapsack Problem (using dynamic programming)
