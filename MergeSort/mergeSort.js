@@ -1,21 +1,14 @@
 // From Full Stack Sorting Workshop
+const mergeSort = {};
 
-const mergeSort = function (array) {
-  if (array.length < 2) return array;
-  const splits = split(array),
-      left = splits[0],
-      right = splits[1];
-  return merge(mergeSort(left), mergeSort(right));
-}
-
-const split = function (array) {
+mergeSort.split = function (array) {
   const center = array.length / 2,
       left = array.slice(0, center),
       right = array.slice(center);
   return [left, right];
 }
 
-const merge = function (left, right) {
+mergeSort.merge = function (left, right) {
   const merged = [];
   let leftIdx = 0,
       rightIdx = 0;
@@ -32,8 +25,12 @@ const merge = function (left, right) {
   return merged;
 }
 
-module.exports = {
-  mergeSort,
-  split,
-  merge
-};
+mergeSort.mergeSort = function (array) {
+  if (array.length < 2) return array;
+  const splits = mergeSort.split(array),
+      left = splits[0],
+      right = splits[1];
+  return mergeSort.merge(mergeSort.mergeSort(left), mergeSort.mergeSort(right));
+}
+
+module.exports = mergeSort;
