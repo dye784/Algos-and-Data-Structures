@@ -30,7 +30,11 @@ mergeSort.mergeSort = function (array) {
   const splits = mergeSort.split(array),
       left = splits[0],
       right = splits[1];
-  return mergeSort.merge(mergeSort.mergeSort(left), mergeSort.mergeSort(right));
+
+  let leftResult = left.length > 1 ? mergeSort.mergeSort(left) : left;
+  let rightResult = right.length > 1 ? mergeSort.mergeSort(right) : right;
+
+  return mergeSort.merge(leftResult, rightResult);
 }
 
 module.exports = mergeSort;

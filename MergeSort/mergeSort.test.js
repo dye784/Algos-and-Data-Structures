@@ -2,16 +2,18 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-// const spies = require('chai-spies');
-// chai.use(spies);
+
 const sinon = require('sinon');
 const chaiSinon = require('chai-sinon');
 chai.use(chaiSinon);
 
-let { mergeSort, split, merge } = require('./mergeSort');
-let fns = require('./mergeSort');
+const { mergeSort, split, merge } = require('./mergeSort');
+const mergeFuncs = require('./mergeSort');
 
-describe.only('Merge sort', () => {
+const insertionSort = require('./baselineTests/insertionBaseline');
+const bubbleSort = require('./baselineTests/bubbleBaseline');
+
+describe('Merge sort', () => {
 
   describe('split', () => {
 
@@ -58,51 +60,68 @@ describe.only('Merge sort', () => {
       expect(sorted).to.deep.equal([-20, 8, 17, 29, 43, 60, 100]);
     });
 
-    describe('algorithmic complexity', () => {
-      let mergeSpy,
-          splitSpy,
-          mergeSortSpy,
-          originalMergeSort,
-          originalMerge,
-          originalSplit;
-
+    describe('function calls', () => {
       const toBeSortedFour = [4, 3, 2, 1];
       const toBeSortedEight = [8, 7, 6, 5, 4, 3, 2, 1];
 
-      beforeEach('create spies', () => {
-        // originalMerge = fns.merge;
-        // originalSplit = fns.split;
-        // originalMergeSort = fns.mergeSort;
-        let spy = sinon.spy(fns, 'merge');
-        sinon.spy(fns, 'mergeSort');
-        sinon.spy(fns, 'split');
-        // console.log(fns);
-        // mergeSpy = sinon.spy(merge);
-        // splitSpy = sinon.spy(split);
-        // mergeSortSpy = sinon.spy(mergeSort);
+      beforeEach('populate spies', () => {
+        sinon.spy(mergeFuncs, 'mergeSort');
+        sinon.spy(mergeFuncs, 'merge');
+        sinon.spy(mergeFuncs, 'split');
       });
 
-      afterEach('reset', () => {
-        // fns.merge = originalMerge;
-        // fns.split = originalSplit;
-        // fns.mergeSort = originalMergeSort;
-        fns.merge.restore();
-        fns.split.restore();
-        fns.mergeSort.restore();
+      afterEach('release spies', () => {
+        mergeFuncs.mergeSort.restore();
+        mergeFuncs.merge.restore();
+        mergeFuncs.split.restore();
       });
 
-      it('calls split log n times', () => {
-        // console.log(fns.merge);
-        // console.log(fns.mergeSort);
-        fns.mergeSort(toBeSortedFour);
-        expect(fns.mergeSort).to.have.callCount(7);
-        expect(fns.split).to.have.been.called();
-        // expect(split).to.have.callCount(3);
+      it('uses recursion', () => {
+        mergeFuncs.mergeSort(toBeSortedFour);
+        expect(mergeFuncs.mergeSort.callCount).to.be.greaterThan(1);
       });
 
-      it('calls mergeSort log n times', () => {
-        // mergeSort(toBeSortedEight);
-        // expect(mergeSortSpy).to.have.callCount(3)
+      it('calls the `merge` and `split` functions', () => {
+        mergeFuncs.mergeSort(toBeSortedEight);
+        expect(mergeFuncs.merge.called).to.be.true;
+        expect(mergeFuncs.split.called).to.be.true;
+        expect(mergeFuncs.merge.callCount).to.be.greaterThan(1);
+        expect(mergeFuncs.split.callCount).to.be.greaterThan(1);
+      });
+
+    });
+
+    describe('execution time', () => {
+      const toBeSortedSixteen = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+      it('is considerably faster than insertion sort or bubble sort with a large input set', function (done) {
+        // ensure that mocha doesn't time out. If you are on a slow machine, speed this up
+        this.timeout(5000);
+        // make a quite long array in very bad sorting order
+        const toBeSortedLong = toBeSortedSixteen
+          .reduce((accum, curr) => {
+            return accum.concat(new Array(2000).fill(curr));
+          }, []);
+
+        var mergeStart = new Date();
+        mergeSort(toBeSortedLong);
+        var mergeTime = new Date() - mergeStart;
+
+        var insertStart = new Date();
+        insertionSort(toBeSortedLong);
+        var insertionTime = new Date() - insertStart;
+
+        var bubbleStart = new Date();
+        bubbleSort(toBeSortedLong);
+        var bubbleTime = new Date() - bubbleStart;
+
+        expect(mergeTime).to.be.lessThan(insertionTime);
+        expect(mergeTime).to.be.lessThan(bubbleTime);
+
+        expect(mergeTime).to.be.at.most(insertionTime / 3);
+        expect(mergeTime).to.be.at.most(bubbleTime / 10);
+
+        done();
       });
 
     });
