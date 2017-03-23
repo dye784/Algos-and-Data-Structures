@@ -6,8 +6,9 @@
   "dependencies": {
     "chai": "^3.5.0",
     "chai-properties": "^1.2.1",
+    "chai-sinon": "^2.8.1",
     "chai-spies": "^0.7.1",
-    "sinon": "^1.17.6",
+    "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0"
   },
   "devDependencies": {

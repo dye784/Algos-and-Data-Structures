@@ -1,14 +1,16 @@
-const mergeSort = function (array) {
+const mergeSort = {};
+
+
+mergeSort.split = function (array) {
+
 }
 
-const split = function (array) {
+mergeSort.merge = function (left, right) {
+
 }
 
-const merge = function (left, right) {
+mergeSort.main = function (array) {
+
 }
 
-module.exports = {
-  mergeSort,
-  split,
-  merge
-};
+module.exports = mergeSort
