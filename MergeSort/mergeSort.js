@@ -25,14 +25,14 @@ mergeSort.merge = function (left, right) {
   return merged;
 }
 
-mergeSort.mergeSort = function (array) {
+mergeSort.main = function (array) {
   if (array.length < 2) return array;
   const splits = mergeSort.split(array),
       left = splits[0],
       right = splits[1];
 
-  let leftResult = left.length > 1 ? mergeSort.mergeSort(left) : left;
-  let rightResult = right.length > 1 ? mergeSort.mergeSort(right) : right;
+  let leftResult = left.length > 1 ? mergeSort.main(left) : left;
+  let rightResult = right.length > 1 ? mergeSort.main(right) : right;
 
   return mergeSort.merge(leftResult, rightResult);
 }

@@ -7,13 +7,14 @@ const sinon = require('sinon');
 const chaiSinon = require('chai-sinon');
 chai.use(chaiSinon);
 
-const { mergeSort, split, merge } = require('./mergeSort');
+const { split, merge } = require('./mergeSort');
+const mergeSort = require('./mergeSort').main;
 const mergeFuncs = require('./mergeSort');
 
 const insertionSort = require('./baselineTests/insertionBaseline');
 const bubbleSort = require('./baselineTests/bubbleBaseline');
 
-describe('Merge sort', () => {
+describe.only('Merge sort', () => {
 
   describe('split', () => {
 
@@ -65,24 +66,24 @@ describe('Merge sort', () => {
       const toBeSortedEight = [8, 7, 6, 5, 4, 3, 2, 1];
 
       beforeEach('populate spies', () => {
-        sinon.spy(mergeFuncs, 'mergeSort');
+        sinon.spy(mergeFuncs, 'main');
         sinon.spy(mergeFuncs, 'merge');
         sinon.spy(mergeFuncs, 'split');
       });
 
       afterEach('release spies', () => {
-        mergeFuncs.mergeSort.restore();
+        mergeFuncs.main.restore();
         mergeFuncs.merge.restore();
         mergeFuncs.split.restore();
       });
 
       it('uses recursion', () => {
-        mergeFuncs.mergeSort(toBeSortedFour);
-        expect(mergeFuncs.mergeSort.callCount).to.be.greaterThan(1);
+        mergeFuncs.main(toBeSortedFour);
+        expect(mergeFuncs.main.callCount).to.be.greaterThan(1);
       });
 
       it('calls the `merge` and `split` functions', () => {
-        mergeFuncs.mergeSort(toBeSortedEight);
+        mergeFuncs.main(toBeSortedEight);
         expect(mergeFuncs.merge.called).to.be.true;
         expect(mergeFuncs.split.called).to.be.true;
         expect(mergeFuncs.merge.callCount).to.be.greaterThan(1);
@@ -95,7 +96,8 @@ describe('Merge sort', () => {
       const toBeSortedSixteen = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
       it('is considerably faster than insertion sort or bubble sort with a large input set', function (done) {
-        // ensure that mocha doesn't time out. If you are on a slow machine, speed this up
+        // ensure that mocha doesn't time out.
+        // If you are on a slower machine and getting timeout errors, speed this up
         this.timeout(5000);
         // make a quite long array in very bad sorting order
         const toBeSortedLong = toBeSortedSixteen
