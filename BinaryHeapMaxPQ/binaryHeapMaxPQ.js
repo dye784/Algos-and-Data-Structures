@@ -1,41 +1,36 @@
-
 class BinaryHeapMaxPQ {
   constructor(array) {
-    this.array = array;
+    this.array = [null, ...array]; // put null in front to make it easier for the arithmetic
     this.size = array.length // make sure length comes before you unshift
-    this.array.unshift(null) // put null in front to make it easier for the arithmetic
   }
 
   isEmpty() {
-    return this.size === 0
+    return this.size === 0;
   }
 
   // when a higher element is placed below a lower element
   // we need to move it up the tree
   swim(idx) {
-
     // while idx > 1 because we don't use the 0th index
     // and array[idx/2] < array[idx]
-
     while (idx > 1 && this.isLess(Math.floor(idx / 2), idx)) {
 
       // swap them
-      this.exchange(idx, Math.floor(idx / 2))
+      this.exchange(idx, Math.floor(idx / 2));
 
       // go up to that index
-      idx = Math.floor(idx / 2)
+      idx = Math.floor(idx / 2);
     }
   }
 
   // opposite of swim
   // we try to move the lower element down the tree
   sink(idx1) {
-
     // while the index is still inside the array
     while (2 * idx1 <= this.size) {
 
       // the next index is double
-      let idx2 = 2 * idx1
+      let idx2 = 2 * idx1;
 
       // if the next index is not the last element and idx2 + 1 is larger, we increment
       // so we can swap with the
@@ -46,7 +41,7 @@ class BinaryHeapMaxPQ {
 
       // swap this element with the element at idx2
       // now we should be at the index double from before
-      this.exchange(idx1, idx2)
+      this.exchange(idx1, idx2);
 
       // we are at idx2 we check again until we reach the right spot
       idx1 = idx2;
@@ -76,24 +71,23 @@ class BinaryHeapMaxPQ {
   insert(element) {
 
     // add it to the end
-    this.array[++this.size] = element
+    this.array[++this.size] = element;
 
     // swim because it might be out of order
-    this.swim(this.size)
+    this.swim(this.size);
   }
 
   // checks if less
   isLess(idx1, idx2) {
-    return this.array[idx1] < this.array[idx2]
+    return this.array[idx1] < this.array[idx2];
   }
 
   // swaps the two elements in array
   exchange(idx1, idx2) {
-    let temp = this.array[idx1];
+    const temp = this.array[idx1];
     this.array[idx1] = this.array[idx2];
     this.array[idx2] = temp;
   }
-
 }
 
 module.exports = BinaryHeapMaxPQ;
