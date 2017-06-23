@@ -62,15 +62,8 @@ class TrieST {
       if (node.next[letter]) return node;
     }
 
-    return null
+    return null;
   }
 }
 
-// module.exports = { Node, TrieST }
-
-let TST = new TrieST()
-TST.put('a', 1)
-TST.put('ab', 2)
-console.log(TST.root)
-TST.delete('ab')
-console.log(TST.root)
+module.exports = { Node, TrieST };
