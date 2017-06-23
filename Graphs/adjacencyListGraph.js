@@ -21,19 +21,13 @@ class Graph {
   }
 
   // returns the connections to specific vertex
-  adjacentVertices(v) {
-    return this.vertices[v];
-  }
+  adjacentVertices = (v) => this.vertices[v];
 
   // the number of connections to a specific vertex
-  degree(v) {
-    return this.vertices[v].length;
-  }
+  degree = (v) => this.vertices[v].length;
 
   // the furthest connection
-  maxDegree() {
-    return Math.max(...this.vertices.map((arr, index) => this.degree(index)));
-  }
+  maxDegree = () => Math.max(...this.vertices.map((arr, index) => this.degree(index)));
 
   // average connection distance
   averageDegree() {
