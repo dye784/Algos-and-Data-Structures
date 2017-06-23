@@ -1,4 +1,3 @@
-
 class Graph {
   constructor(v, e) {
     this.numVertices = v;
@@ -9,8 +8,8 @@ class Graph {
 
   // initialize each vertex in verticies array with another array to house connections
   verticesInit() {
-    for (var i = 0; i < this.numVertices; i++) {
-      this.vertices[i] = []
+    for (let i = 0; i < this.numVertices; i++) {
+      this.vertices[i] = [];
     }
   }
 
@@ -23,7 +22,7 @@ class Graph {
 
   // returns the connections to specific vertex
   adjacentVertices(v) {
-    return this.vertices[v]
+    return this.vertices[v];
   }
 
   // the number of connections to a specific vertex
