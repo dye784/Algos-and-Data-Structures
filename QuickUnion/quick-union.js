@@ -1,23 +1,19 @@
 class QuickUnion { // Union Union Algo
-
   // starts out the same as the QuickFindUF algo
   // the construction of the Algo is the same
   constructor(length) {
     this.arrayOfIds = Array(length);
 
-    for (var i = 0; i < this.arrayOfIds.length; i++) {
-      this.arrayOfIds[i] = i
+    for (let i = 0; i < this.arrayOfIds.length; i++) {
+      this.arrayOfIds[i] = i;
     }
   }
 
-
   // Here is where the it starts to change
-
   // function that chases the pointer until it reaches the root
   root(i) {
-
     // while i is not equal to the id
-    while( i !== this.arrayOfIds[i] ) {
+    while (i !== this.arrayOfIds[i]) {
 
       // change i to the id and keep going to find the root
       i = this.arrayOfIds[i];
@@ -35,9 +31,8 @@ class QuickUnion { // Union Union Algo
 
   // are the roots connected?
   areTheyConnected(firstIndex, secondIndex) {
-    return this.root(firstIndex) === this.root(secondIndex)
+    return this.root(firstIndex) === this.root(secondIndex);
   }
-
 
   // connects the element at the firstIndex with the element in the secondIndex
   // in this case we do not need to loop through the array to change all the indecies
@@ -46,12 +41,12 @@ class QuickUnion { // Union Union Algo
   connect(firstIndex, secondIndex) { // AKA UNION
 
     // first we find the root Id of both indicies
-    let firstId = this.root(firstIndex)
-    let secondId = this.root(secondIndex)
+    let firstId = this.root(firstIndex);
+    let secondId = this.root(secondIndex);
 
     // connect the root node of the first index to the root node of second index
-    this.arrayOfIds[firstId] = secondId
+    this.arrayOfIds[firstId] = secondId;
   }
 }
 
-module.exports = QuickUnion
+module.exports = QuickUnion;
