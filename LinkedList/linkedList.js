@@ -7,7 +7,6 @@ class Node {
 }
 
 class LinkedList {
-
   constructor() {
     this.head = null;
     this.tail = null;
@@ -61,11 +60,11 @@ class LinkedList {
     if (!removedTail) return;
 
     if (removedTail.previous) {
-        this.tail = removedTail.previous;
-        this.tail.next = null;
+      this.tail = removedTail.previous;
+      this.tail.next = null;
     } else {
-        this.head = null;
-        this.tail = null;
+      this.head = null;
+      this.tail = null;
     }
 
     return removedTail.value;
