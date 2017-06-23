@@ -18,8 +18,8 @@ class LinkedList {
     this.head = newNode;
 
     if (formerHead) {
-        formerHead.previous = newNode;
-        newNode.next = formerHead;
+      formerHead.previous = newNode;
+      newNode.next = formerHead;
     }
 
     if (!this.tail) this.tail = newNode;
