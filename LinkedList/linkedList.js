@@ -14,10 +14,8 @@ class LinkedList {
   }
 
   addToHead(v) {
-
     const newNode = new Node(v);
     const formerHead = this.head;
-
     this.head = newNode;
 
     if (formerHead) {
@@ -26,14 +24,11 @@ class LinkedList {
     }
 
     if (!this.tail) this.tail = newNode;
-
   }
 
   addToTail(v) {
-
     const newNode = new Node(v);
     const formerTail = this.tail;
-
     this.tail = newNode;
 
     if (formerTail) {
@@ -42,11 +37,9 @@ class LinkedList {
     }
 
     if (!this.head) this.head = this.tail;
-
   }
 
   removeHead() {
-
     const removedHead = this.head;
 
     if (!removedHead) return;
@@ -60,11 +53,9 @@ class LinkedList {
     }
 
     return removedHead.value;
-
   }
 
   removeTail() {
-
     const removedTail = this.tail;
 
     if (!removedTail) return;
@@ -78,11 +69,9 @@ class LinkedList {
     }
 
     return removedTail.value;
-
   }
 
   search(comparator) {
-
     let currentNode = this.head;
 
     if (typeof comparator === 'string') {
@@ -102,7 +91,6 @@ class LinkedList {
   }
 
   size() {
-
     let i = 0;
     let currentNode = this.head;
 
@@ -112,7 +100,6 @@ class LinkedList {
     }
 
     return i;
-
   }
 
 }
